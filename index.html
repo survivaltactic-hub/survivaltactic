@@ -1,500 +1,332 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ari Einar — Виживання, Самозахист, Тактика</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-  /* Reset и базовые стили */
-  body {
-    margin: 0; padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: #121212;
-    color: #eee;
-    line-height: 1.6;
-    scroll-behavior: smooth;
-  }
-  a {
-    color: #f0a500;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-
-  /* Контейнер */
-  .container {
-    max-width: 900px;
-    margin: 40px auto 80px;
-    padding: 0 20px;
-  }
-
-  /* Заголовки */
-  h1, h2, h3 {
-    font-weight: 700;
-    color: #f0a500;
-    text-align: center;
-    margin-bottom: 15px;
-  }
-  h1 { font-size: 3rem; margin-bottom: 10px; }
-  h2 { font-size: 2rem; margin-top: 60px; }
-  h3 { font-size: 1.4rem; margin-top: 40px; margin-bottom: 20px; }
-
-  /* Текст и списки */
-  p, ul {
-    font-weight: 400;
-    font-size: 1.1rem;
-    max-width: 720px;
-    margin: 0 auto 30px auto;
-    color: #ddd;
-  }
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  ul li {
-    margin-bottom: 10px;
-    padding-left: 20px;
-    position: relative;
-  }
-  ul li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #f0a500;
-    font-size: 1.3rem;
-    line-height: 1;
-  }
-
-  /* Кнопки */
-  .btn {
-    display: inline-block;
-    background-color: #f0a500;
-    color: #121212;
-    font-weight: 700;
-    font-size: 1.1rem;
-    padding: 12px 30px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    margin: 20px auto;
-    text-decoration: none;
-  }
-  .btn:hover {
-    background-color: #cc8500;
-  }
-
-  /* Навигация */
-  nav {
-    background: #1a1a1a;
-    padding: 15px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.7);
-  }
-  nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin: 0; padding: 0;
-    list-style: none;
-  }
-  nav ul li a {
-    color: #f0a500;
-    font-weight: 600;
-    font-size: 1rem;
-  }
-  nav ul li a:hover {
-    color: #cc8500;
-  }
-
-  /* Секции */
-  section {
-    padding-bottom: 60px;
-    border-bottom: 1px solid #333;
-  }
-  section:last-child {
-    border-bottom: none;
-  }
-
-  /* Курсы — карточки */
-  .courses {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 25px;
-    max-width: 900px;
-    margin: 0 auto 40px;
-  }
-  .course-card {
-    background: #222;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(240,165,0,0.25);
-    transition: transform 0.3s ease;
-  }
-  .course-card:hover {
-    transform: scale(1.05);
-  }
-  .course-title {
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-    color: #f0a500;
-  }
-  .course-desc {
-    font-weight: 400;
-    font-size: 1rem;
-    margin-bottom: 12px;
-    color: #ccc;
-  }
-  .course-price {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: #eee;
-  }
-
-  /* Отзывы — галерея */
-  .reviews-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-  }
-  .reviews-gallery img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.6);
-    transition: transform 0.3s ease;
-  }
-  .reviews-gallery img:hover {
-    transform: scale(1.15);
-  }
-
-  /* Модальное окно для отзывов */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0; top: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  .modal.active {
-    display: flex;
-  }
-  .modal img {
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: 10px;
-    box-shadow: 0 0 30px #f0a500;
-  }
-  .modal-close {
-    position: absolute;
-    top: 20px; right: 30px;
-    font-size: 2rem;
-    color: #f0a500;
-    cursor: pointer;
-    font-weight: 700;
-    user-select: none;
-  }
-
-  /* Форма контактов */
-  form {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #f0a500;
-  }
-  form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 6px;
-    border: none;
-    font-size: 1rem;
-    resize: vertical;
-  }
-  form input[type="submit"] {
-    background-color: #f0a500;
-    color: #121212;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease;
-  }
-  form input[type="submit"]:hover {
-    background-color: #cc8500;
-  }
-
-  /* Telegram кнопка */
-  .telegram-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #0088cc;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 30px;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease;
-  }
-  .telegram-btn:hover {
-    background-color: #006699;
-  }
-  .telegram-icon {
-    width: 20px; height: 20px;
-    fill: white;
-  }
-
-  /* Адаптив */
-  @media (max-width: 600px) {
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.6rem; }
-    h3 { font-size: 1.2rem; }
-    .reviews-gallery img { width: 90px; height: 90px; }
-    .courses {
-      grid-template-columns: 1fr;
-      gap: 20px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ari Einar — Виживання, Самооборона, Навчання</title>
+  <style>
+    /* Сброс и базовые стили */
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #eee;
+      line-height: 1.6;
     }
-  }
-</style>
+    h1, h2, h3 {
+      margin-bottom: 0.5em;
+    }
+    a {
+      color: #f0a500;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Контейнер */
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    /* Заголовок сайта */
+    header {
+      text-align: center;
+      padding: 40px 20px 20px 20px;
+      background: #1e1e1e;
+      border-bottom: 3px solid #f0a500;
+    }
+    header h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      font-weight: 900;
+    }
+    header p {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #f0a500;
+    }
+    /* Кнопки */
+    .btn {
+      background-color: #f0a500;
+      color: #121212;
+      padding: 12px 25px;
+      margin: 10px 5px 10px 5px;
+      border: none;
+      border-radius: 4px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+    .btn:hover {
+      background-color: #c07a00;
+    }
+    /* Секции */
+    section {
+      margin: 40px 0;
+      padding: 0 15px;
+    }
+    section h2 {
+      border-bottom: 2px solid #f0a500;
+      padding-bottom: 8px;
+      font-weight: 800;
+      font-size: 2em;
+    }
+    /* Таблица курсов */
+    table {
+      width: 100%;
+      max-width: 700px;
+      margin: 20px auto;
+      border-collapse: collapse;
+      color: #eee;
+    }
+    thead tr {
+      background-color: #f0a500;
+      color: #121212;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #444;
+    }
+    td.price {
+      text-align: right;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+    /* Блок про мене */
+    #about p {
+      max-width: 700px;
+      margin: 15px auto;
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+    /* Відгуки — сетка */
+    #reviews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+      max-width: 700px;
+      margin: auto;
+    }
+    #reviews img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+    }
+    #reviews img:hover {
+      transform: scale(1.1);
+      z-index: 10;
+      box-shadow: 0 0 10px #f0a500;
+    }
+    /* Модал для увеличения фото отзывов */
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1000; 
+      left: 0; top: 0; 
+      width: 100%; height: 100%; 
+      background-color: rgba(0,0,0,0.9);
+      align-items: center; 
+      justify-content: center;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+    }
+    .modal:target {
+      display: flex;
+    }
+    /* Контакты */
+    #contact form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    #contact input, #contact textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1em;
+    }
+    #contact button {
+      max-width: 200px;
+      align-self: center;
+    }
+    /* Ссылки Телеграм */
+    .telegram-btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: #0088cc;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .telegram-btn:hover {
+      background-color: #006699;
+    }
+    .telegram-btn svg {
+      margin-right: 8px;
+    }
+    /* FAQ */
+    #faq dl {
+      max-width: 700px;
+      margin: auto;
+    }
+    #faq dt {
+      font-weight: 700;
+      margin-top: 20px;
+      cursor: pointer;
+      color: #f0a500;
+    }
+    #faq dd {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <ul>
-    <li><a href="#main">Головна</a></li>
-    <li><a href="#courses">Курси</a></li>
-    <li><a href="#about">Про мене</a></li>
-    <li><a href="#products">Продукти</a></li>
-    <li><a href="#blog">Блог</a></li>
-    <li><a href="#reviews">Відгуки</a></li>
-    <li><a href="#contacts">Контакти</a></li>
-    <li><a href="#faq">FAQ</a></li>
-  </ul>
-</nav>
+<header>
+  <h1>Ari Einar</h1>
+  <p>Навички виживання, що рятують життя. Перевірено війною.</p>
+  <div>
+    <a href="#courses" class="btn">Дивитись курси</a>
+    <a href="#about" class="btn">Про мене</a>
+    <a href="#contact" class="btn">Зв’язатися</a>
+  </div>
+</header>
 
 <div class="container">
 
-  <!-- Головна -->
-  <section id="main">
-    <h1>Ari Einar</h1>
-    <p style="text-align:center; font-size:1.3rem; max-width: 700px; margin: 10px auto 30px;">
-      Навички виживання, що рятують життя. Перевірено війною.
-    </p>
-    <div style="text-align:center;">
-      <a href="#courses" class="btn">Дивитись курси</a>
-      <a href="#about" class="btn" style="background:#cc8500;">Про мене</a>
-      <a href="#contacts" class="btn">Зв’язатися</a>
-    </div>
-  </section>
-
-  <!-- Курси -->
   <section id="courses">
     <h2>Курси / Навчання</h2>
-    <div class="courses">
-      <div class="course-card">
-        <div class="course-title">Виживання (урбан, автономія, блекаути)</div>
-        <div class="course-desc">Навички для виживання в міських та польових умовах.</div>
-        <div class="course-price">від ₴2200</div>
-      </div>
-      <div class="course-card">
-        <div class="course-title">Самооборона (Крав-мага, психологія конфлікту)</div>
-        <div class="course-desc">Ефективний захист та психологічна підготовка.</div>
-        <div class="course-price">від ₴2000</div>
-      </div>
-      <div class="course-card">
-        <div class="course-title">Польова тактика</div>
-        <div class="course-desc">Основи партизанської тактики та маскування.</div>
-        <div class="course-price">від ₴1500</div>
-      </div>
-      <div class="course-card">
-        <div class="course-title">Базова домедична допомога</div>
-        <div class="course-desc">Допомога на полі бою та в екстрених ситуаціях.</div>
-        <div class="course-price">від ₴1200</div>
-      </div>
-      <div class="course-card">
-        <div class="course-title">Психологічна витривалість</div>
-        <div class="course-desc">Подолання ПТСР, стресів, адаптація.</div>
-        <div class="course-price">від ₴1800</div>
-      </div>
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Курс</th>
+          <th>Опис</th>
+          <th>Ціна</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Виживання</td>
+          <td>Навички виживання в міських та польових умовах</td>
+          <td class="price">від ₴2200</td>
+        </tr>
+        <tr>
+          <td>Самооборона</td>
+          <td>Крав-мага, психологія конфлікту</td>
+          <td class="price">від ₴2000</td>
+        </tr>
+        <tr>
+          <td>Польова тактика</td>
+          <td>Партизанські методи і маскування</td>
+          <td class="price">від ₴1500</td>
+        </tr>
+        <tr>
+          <td>Домедична допомога</td>
+          <td>Основи першої допомоги на полі бою</td>
+          <td class="price">від ₴1200</td>
+        </tr>
+        <tr>
+          <td>Психологічна витривалість</td>
+          <td>Подолання стресу і ПТСР</td>
+          <td class="price">від ₴1800</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
-  <!-- Про мене -->
   <section id="about">
     <h2>Про мене</h2>
     <p>
-      Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року.
-      Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага),
-      польова тактика, партизанські дії, базова домедична допомога.
+      Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року. Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага), польова тактика, партизанські дії, базова домедична допомога.
     </p>
     <p>
-      Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю
-      офіційні подяки від бойових бригад та командирів.
+      Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю офіційні подяки від бойових бригад та командирів.
     </p>
     <p>
-      Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено,
-      рішуче та без паніки — коли це справді потрібно.
+      Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено, рішуче та без паніки — коли це справді потрібно.
     </p>
   </section>
 
-  <!-- Продукти -->
-  <section id="products">
-    <h2>Продукти / Магазин</h2>
-    <div class="courses">
-      <div class="course-card">
-        <div class="course-title">PDF-гайди</div>
-        <div class="course-desc">Практичні інструкції для швидкого навчання.</div>
-        <a href="#" class="btn">Купити</a>
-      </div>
-      <div class="course-card">
-        <div class="course-title">Відео-курси</div>
-        <div class="course-desc">Глибоке занурення в теми безпеки та виживання.</div>
-        <a href="#" class="btn">Купити</a>
-      </div>
-      <div class="course-card">
-        <div class="course-title">Чек-листи</div>
-        <div class="course-desc">Швидкі нагадування і контрольні списки.</div>
-        <a href="#" class="btn">Купити</a>
-      </div>
-      <div class="course-card">
-        <div class="course-title">Аудіо-медитації / Дихання</div>
-        <div class="course-desc">Психологічна підтримка і тренування уваги.</div>
-        <a href="#" class="btn">Купити</a>
-      </div>
-      <div class="course-card">
-        <div class="course-title">Комплекти “все-в-одному”</div>
-        <div class="course-desc">Повний набір для швидкої підготовки.</div>
-        <a href="#" class="btn">Купити</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Блог -->
-  <section id="blog">
-    <h2>Блог / Статті</h2>
-    <ul>
-      <li>Що класти в тривожну валізу</li>
-      <li>Перша допомога при вибуховому пораненні</li>
-      <li>Як не зламатися під час евакуації</li>
-      <li>Поради з ментального виживання</li>
-    </ul>
-  </section>
-
-  <!-- Відгуки -->
   <section id="reviews">
-    <h2>Відгуки / Подяки</h2>
-    <div class="reviews-gallery">
-      <img src="https://i.pravatar.cc/150?img=12" alt="Відгук 1" tabindex="0" />
-      <img src="https://i.pravatar.cc/150?img=24" alt="Відгук 2" tabindex="0" />
-      <img src="https://i.pravatar.cc/150?img=36" alt="Відгук 3" tabindex="0" />
-      <img src="https://i.pravatar.cc/150?img=48" alt="Відгук 4" tabindex="0" />
-      <img src="https://i.pravatar.cc/150?img=52" alt="Відгук 5" tabindex="0" />
+    <h2>Відгуки</h2>
+    <!-- Примеры фото -->
+    <div id="reviews-grid">
+      <a href="#modal1"><img src="https://picsum.photos/id/1011/300/300" alt="Відгук 1" loading="lazy" /></a>
+      <a href="#modal2"><img src="https://picsum.photos/id/1012/300/300" alt="Відгук 2" loading="lazy" /></a>
+      <a href="#modal3"><img src="https://picsum.photos/id/1013/300/300" alt="Відгук 3" loading="lazy" /></a>
+      <a href="#modal4"><img src="https://picsum.photos/id/1015/300/300" alt="Відгук 4" loading="lazy" /></a>
     </div>
   </section>
 
-  <!-- Контакти -->
-  <section id="contacts">
-    <h2>Контакти</h2>
-    <form id="contact-form">
-      <label for="name">Ім’я</label>
-      <input type="text" id="name" name="name" placeholder="Ваше ім’я" required />
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="example@mail.com" required />
-      <label for="message">Повідомлення</label>
-      <textarea id="message" name="message" rows="5" placeholder="Ваше повідомлення" required></textarea>
-      <input type="submit" value="Надіслати" />
-    </form>
-    <div style="text-align:center; margin-top: 20px;">
-      <a class="telegram-btn" href="https://t.me/yourtelegramchat" target="_blank" rel="noopener">
-        <svg class="telegram-icon" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M120 0c66.274 0 120 53.726 120 120s-53.726 120-120 120S0 186.274 0 120 53.726 0 120 0zm58.594 82.194-22.9 107.317c-1.727 7.59-6.21 9.45-12.577 5.893l-34.805-25.7-16.787 16.173c-1.856 1.856-3.406 3.406-6.954 3.406l2.5-35.23 63.993-57.833c2.785-2.5-.607-3.908-4.318-1.408l-79.198 49.76-34.08-10.64c-7.37-2.3-7.507-7.37 1.53-10.896l131.22-50.578c6.08-2.278 11.4 1.46 9.35 10.38z"/></svg>
-        Telegram чат
-      </a>
-    </div>
-  </section>
+  <!-- Модальные окна для отзывов -->
+  <div id="modal1" class="modal">
+    <a href="#reviews" style="position:absolute;top:20px;right:30px;font-size:30px;color:#f0a500;text-decoration:none;">&times;</a>
+    <img src="https://picsum.photos/id/1011/900/900" alt="Відгук 1" />
+  </div>
+  <div id="modal2" class="modal">
+    <a href="#reviews" style="position:absolute;top:20px;right:30px;font-size:30px;color:#f0a500;text-decoration:none;">&times;</a>
+    <img src="https://picsum.photos/id/1012/900/900" alt="Відгук 2" />
+  </div>
+  <div id="modal3" class="modal">
+    <a href="#reviews" style="position:absolute;top:20px;right:30px;font-size:30px;color:#f0a500;text-decoration:none;">&times;</a>
+    <img src="https://picsum.photos/id/1013/900/900" alt="Відгук 3" />
+  </div>
+  <div id="modal4" class="modal">
+    <a href="#reviews" style="position:absolute;top:20px;right:30px;font-size:30px;color:#f0a500;text-decoration:none;">&times;</a>
+    <img src="https://picsum.photos/id/1015/900/900" alt="Відгук 4" />
+  </div>
 
-  <!-- FAQ -->
   <section id="faq">
     <h2>Питання – Відповіді (FAQ)</h2>
-    <ul>
-      <li><strong>Як проходить навчання?</strong> – Через практичні тренінги та відео-матеріали.</li>
-      <li><strong>Чи підійде новачкам?</strong> – Так, курси адаптовані для різного рівня підготовки.</li>
-      <li><strong>Як отримати матеріали після оплати?</strong> – Через особистий кабінет або електронну пошту.</li>
-      <li><strong>Чи можна отримати зворотній зв’язок?</strong> – Звісно, через форму на сайті або Telegram.</li>
-    </ul>
+    <dl>
+      <dt>Як проходить навчання?</dt>
+      <dd>Тренування проходять в невеликих групах або індивідуально, із практичним відпрацюванням навичок.</dd>
+
+      <dt>Чи підійде новачкам?</dt>
+      <dd>Так, програми розроблені так, щоб бути зрозумілими та ефективними для будь-якого рівня підготовки.</dd>
+
+      <dt>Як отримати матеріали після оплати?</dt>
+      <dd>Після оплати ви отримуєте доступ до онлайн-ресурсів та додаткових матеріалів на пошту.</dd>
+
+      <dt>Чи можна отримати зворотній зв’язок?</dt>
+      <dd>Так, інструктор завжди на зв’язку для консультацій і допомоги.</dd>
+    </dl>
+  </section>
+
+  <section id="contact">
+    <h2>Контакти</h2>
+    <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Ваше ім’я" required />
+      <input type="email" name="email" placeholder="Ваша пошта" required />
+      <textarea name="message" rows="5" placeholder="Ваше повідомлення" required></textarea>
+      <button type="submit" class="btn">Надіслати</button>
+    </form>
+    <p style="text-align:center; margin-top: 15px;">
+      Або зв’яжіться зі мною в Telegram:
+      <br />
+      <a href="https://t.me/ari_einar" target="_blank" rel="noopener" class="telegram-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+        @ari_einar
+      </a>
+    </p>
   </section>
 
 </div>
-
-<!-- Модал для фото відгуків -->
-<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
-  <span class="modal-close" role="button" aria-label="Закрити">&times;</span>
-  <img id="modal-img" src="" alt="Відгук у великому вигляді" />
-</div>
-
-<script>
-  // Модал для відгуків
-  const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modal-img');
-  const modalClose = modal.querySelector('.modal-close');
-  const reviewImgs = document.querySelectorAll('.reviews-gallery img');
-
-  reviewImgs.forEach(img => {
-    img.addEventListener('click', () => {
-      modalImg.src = img.src;
-      modalImg.alt = img.alt;
-      modal.classList.add('active');
-      modal.focus();
-    });
-    img.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
-        modal.classList.add('active');
-        modal.focus();
-      }
-    });
-  });
-
-  modalClose.addEventListener('click', () => {
-    modal.classList.remove('active');
-    modalImg.src = '';
-  });
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('active');
-      modalImg.src = '';
-    }
-  });
-
-  // Простая отправка формы (можно заменить на реальный бэкенд)
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    alert('Дякую за звернення! Ваше повідомлення надіслано.');
-    form.reset();
-  });
-</script>
 
 </body>
 </html>
