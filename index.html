@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ari Einar | Курси з виживання, самозахисту та тактики</title>
   <meta name="description" content="Курси з виживання, самооборони, тактики. Авторські тренінги від Ari Einar — ветерана бойових дій." />
   <meta name="keywords" content="виживання, самооборона, тактика, Крав-мага, бойовий досвід, курси, Ari Einar" />
   <meta name="author" content="Ari Einar" />
@@ -12,73 +13,313 @@
   <meta property="og:image" content="preview.jpg" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://arieinar.com" />
-  <title>Ari Einar | Survival & Self-Defense Training</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="styles.css" />
   <style>
-    /* стилі як у попередньому коді */
-  </style>
-  <script>
-    function switchLanguage(lang) {
-      window.location.href = lang + ".html";
+    body {
+      background-color: #0e0e0e;
+      color: #f4f4f4;
+      font-family: 'Arial', sans-serif;
+      margin: 0; padding: 0;
     }
-  </script>
+    a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    header {
+      background: #1a1a1a;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #333;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #ffd700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding-left: 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      margin: 0;
+    }
+    nav a {
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    h1, h2, h3 {
+      color: #ffd700;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+    }
+    h2 {
+      border-bottom: 2px solid #ffd700;
+      padding-bottom: 0.5rem;
+    }
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      color: #f4f4f4;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    th {
+      background-color: #222;
+    }
+    /* Галерея отзывов */
+    .review-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .review-gallery img {
+      width: 200px;
+      height: auto;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .review-gallery img:hover {
+      transform: scale(1.1);
+      z-index: 10;
+    }
+    /* Модальное окно для увеличенного фото */
+    #modal {
+      display: none;
+      position: fixed;
+      top:0; left:0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #modal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ffd700;
+    }
+    #modal.close {
+      cursor: pointer;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    input, textarea {
+      padding: 0.75rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    button {
+      background-color: #ffd700;
+      border: none;
+      padding: 0.75rem;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #e6c200;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #111;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .review-gallery img {
+        width: 45vw;
+      }
+      form {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="lang-switcher">
-    <button onclick="switchLanguage('uk')">UA</button>
-    <button onclick="switchLanguage('en')">EN</button>
-  </div>
 
-  <header class="navbar">
-    <div class="logo">
-      <img src="logo.png" alt="Logo" class="logo-image" />
-      Ari Einar
-    </div>
-    <ul class="nav-links">
-      <li><a href="#courses">Курси</a></li>
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Ari Einar Logo" />
+    Ari Einar
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#home">Головна</a></li>
       <li><a href="#about">Про мене</a></li>
+      <li><a href="#courses">Курси</a></li>
+      <li><a href="#reviews">Відгуки</a></li>
       <li><a href="#contact">Контакти</a></li>
     </ul>
-  </header>
+  </nav>
+</header>
 
-  <section class="hero">
-    <h1>Навички виживання, що рятують життя. Перевірено війною.</h1>
-    <button class="cta-button" onclick="document.getElementById('courses').scrollIntoView()">Дивитись курси</button>
-  </section>
-
-  <section class="section" id="courses">
-    <h2>Прайс та Курси</h2>
-    <!-- вставка таблиць з цінами, курсами, матеріалами -->
-  </section>
-
-  <section class="section" id="about">
-    <h2>Про мене</h2>
-    <p>Все, чого навчаю — пройдено особисто. Досвід війни, підготовка підрозділів, допомога цивільним — усе це стало основою авторських тренінгів.</p>
-    <!-- Додати фото / цитати -->
-  </section>
-
-  <section class="section" id="reviews">
-    <h2>Відгуки</h2>
-    <div class="review-gallery">
-      <img src="review1.jpg" alt="Відгук 1" onclick="this.classList.toggle('zoomed')" />
-      <img src="review2.jpg" alt="Відгук 2" onclick="this.classList.toggle('zoomed')" />
-      <img src="review3.jpg" alt="Відгук 3" onclick="this.classList.toggle('zoomed')" />
+<main>
+  <section id="home">
+    <h1>Навички виживання, що рятують життя. Перевірено війною</h1>
+    <p style="text-align:center;">
+      Ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року.  
+      Навчаю цивільних та військових виживати, захищатись і діяти впевнено у складних ситуаціях.
+    </p>
+    <div style="text-align:center;">
+      <a href="#courses" class="cta-button" style="padding: 1rem 2rem; background:#ffd700; color:#000; font-weight:bold; text-transform:uppercase; border-radius:5px; text-decoration:none;">Дивитись курси</a>
     </div>
   </section>
 
-  <section class="section" id="contact">
-    <h2>Контакти</h2>
-    <form action="mailto:ari@example.com" method="POST" enctype="text/plain">
-      <input type="text" name="name" placeholder="Ваше ім'я" required />
-      <textarea name="message" placeholder="Ваше повідомлення" required></textarea>
-      <button type="submit">Надіслати</button>
-    </form>
-    <p>або напишіть у <a href="https://t.me/arieinar" target="_blank" style="color:#ffd700;">Telegram</a></p>
+  <section id="about">
+    <h2>Про мене</h2>
+    <p>Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року. Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага), польова тактика, партизанські дії, базова домедична допомога.</p>
+    <p>Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю офіційні подяки від бойових бригад та командирів.</p>
+    <p>Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено, рішуче та без паніки — коли це справді потрібно.</p>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Ari Einar. Всі права захищено.</p>
-  </footer>
+  <section id="courses">
+    <h2>Курси</h2>
+    <p>Пропоную комплексні тренінги та авторські курси:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Назва курсу</th>
+          <th>Опис</th>
+          <th>Ціна</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Виживання в екстремальних умовах</td>
+          <td>Навички виживання в природі та в умовах бойових дій: орієнтування, побудова укриття, добування води і їжі, основи домедичної допомоги.</td>
+          <td>3500 грн</td>
+        </tr>
+        <tr>
+          <td>Самозахист і тактика Крав-мага</td>
+          <td>Практичний курс з прийомів самооборони, навички деескалації конфліктів, робота з холодною зброєю.</td>
+          <td>4000 грн</td>
+        </tr>
+        <tr>
+          <td>Польова тактика та партизанські дії</td>
+          <td>Основи тактичного мислення, пересування та приховання, робота в команді, партизанські прийоми.</td>
+          <td>4500 грн</td>
+        </tr>
+        <tr>
+          <td>Базова домедична допомога</td>
+          <td>Надання першої допомоги у бойових умовах, зупинка кровотеч, накладання пов’язок, евакуація поранених.</td>
+          <td>3000 грн</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="reviews">
+    <h2>Відгуки</h2>
+    <p>Щиро дякую всім, хто довірився моїм тренінгам. Ось що кажуть учасники:</p>
+    <div class="review-gallery">
+      <img src="review1.jpg" alt="Відгук 1" />
+      <img src="review2.jpg" alt="Відгук 2" />
+      <img src="review3.jpg" alt="Відгук 3" />
+      <img src="review4.jpg" alt="Відгук 4" />
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Зв'язок зі мною</h2>
+    <form id="contactForm" action="https://formspree.io/f/myform" method="POST">
+      <input type="text" name="name" placeholder="Ваше ім'я" required />
+      <input type="email" name="email" placeholder="Ваша електронна пошта" required />
+      <textarea name="message" rows="5" placeholder="Ваше повідомлення" required></textarea>
+      <button type="submit">Відправити</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Ari Einar — Всі права захищені</p>
+</footer>
+
+<!-- Скрипт для модального перегляду відгуків -->
+<div id="modal" onclick="closeModal()">
+  <img id="modalImg" src="" alt="Збільшене фото відгуку" />
+</div>
+
+<script>
+  const galleryImages = document.querySelectorAll('.review-gallery img');
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modalImg');
+
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+    });
+  });
+
+  function closeModal() {
+    modal.style.display = 'none';
+    modalImg.src = '';
+    modalImg.alt = '';
+  }
+</script>
+
 </body>
 </html>
