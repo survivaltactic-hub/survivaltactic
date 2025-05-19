@@ -16,8 +16,8 @@
   }
   .container {
     max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px 60px;
+    margin: 60px auto 80px;
+    padding: 0 20px;
   }
   h1, h2, h3 {
     font-weight: 700;
@@ -85,7 +85,7 @@
   .btn {
     display: block;
     width: max-content;
-    margin: 0 auto 40px;
+    margin: 0 auto 60px;
     padding: 14px 28px;
     background-color: #f0a500;
     color: #121212;
@@ -109,15 +109,10 @@
     animation-name: fadeInUp;
     animation-duration: 1s;
   }
-  .fade-in.delay-1 {
-    animation-delay: 0.3s;
-  }
-  .fade-in.delay-2 {
-    animation-delay: 0.6s;
-  }
-  .fade-in.delay-3 {
-    animation-delay: 0.9s;
-  }
+  .fade-in.delay-1 { animation-delay: 0.3s; }
+  .fade-in.delay-2 { animation-delay: 0.6s; }
+  .fade-in.delay-3 { animation-delay: 0.9s; }
+  .fade-in.delay-4 { animation-delay: 1.2s; }
   @keyframes fadeInUp {
     to {
       opacity: 1;
@@ -125,45 +120,62 @@
     }
   }
 
+  /* Отзывы — сетка фото */
+  .reviews {
+    max-width: 720px;
+    margin: 0 auto 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+    gap: 15px;
+  }
+  .review-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 8px rgba(240,165,0,0.5);
+  }
+  .review-photo:hover {
+    transform: scale(1.4);
+    z-index: 10;
+    box-shadow: 0 0 20px #f0a500;
+  }
+
+  /* Резюме */
+  .resume {
+    max-width: 720px;
+    margin: 0 auto 60px;
+    background: #222;
+    padding: 25px 30px;
+    border-radius: 10px;
+    color: #ddd;
+    font-weight: 500;
+  }
+  .resume h3 {
+    margin-top: 0;
+    color: #f0a500;
+  }
+  .resume ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .resume ul li::before {
+    content: "✓";
+    color: #f0a500;
+    margin-right: 8px;
+  }
+
   /* Responsive */
   @media (max-width: 600px) {
     h1 { font-size: 2.2rem; }
     h2 { font-size: 1.5rem; }
     table, th, td { font-size: 0.9rem; }
-  }
-
-  /* Новий розділ Відгуки */
-  .reviews {
-    margin: 60px auto;
-    text-align: center;
-    color: #f0a500;
-  }
-  .reviews h2 {
-    font-weight: 700;
-    margin-bottom: 30px;
-  }
-  .review-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 10px;
-  }
-  .review-grid img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-  }
-  .review-grid img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(240, 165, 0, 0.8);
-    z-index: 10;
-    position: relative;
+    .reviews {
+      grid-template-columns: repeat(auto-fit,minmax(80px,1fr));
+      gap: 10px;
+    }
   }
 </style>
 </head>
@@ -185,7 +197,7 @@
       <li>Онлайн-матеріали і відеоуроки</li>
     </ul>
 
-    <h2 class="fade-in">Прайс</h2>
+    <h2 class="fade-in delay-4">Прайс</h2>
 
     <h3 class="fade-in delay-1">1. Консультації</h3>
     <table class="fade-in delay-1">
@@ -200,7 +212,7 @@
       </tbody>
     </table>
 
-    <h3 class="fade-in delay-2">2.Індивідуальні тренування</h3>
+    <h3 class="fade-in delay-2">2. Індивідуальні тренування</h3>
     <table class="fade-in delay-2">
       <thead>
         <tr><th>Тема</th><th>Тривалість</th><th>Ціна</th></tr>
@@ -220,4 +232,54 @@
       </thead>
       <tbody>
         <tr><td>Основи виживання</td><td>від 3 год</td><td>від 800 грн</td></tr>
-        <tr><td>Особиста безпека для цивільних</td><td>від 4 год</td
+        <tr><td>Особиста безпека для цивільних</td><td>від 4 год</td><td>від 1000 грн</td></tr>
+        <tr><td>Польова тактика</td><td>від 6 год</td><td>від 1500 грн</td></tr>
+        <tr><td>CQB / SERE / партизанська тактика</td><td>від 6 год</td><td>від 2000 грн</td></tr>
+        <tr><td>Базова домедична допомога</td><td>від 4 год</td><td>від 1200 грн</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="fade-in delay-1">4. Онлайн-курси та матеріали</h3>
+    <table class="fade-in delay-1">
+      <thead>
+        <tr><th>Продукт</th><th>Ціна</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Відеокурс «Виживання в місті»</td><td>від 700 грн</td></tr>
+        <tr><td>Онлайн-курс з самозахисту</td><td>від 600 грн</td></tr>
+        <tr><td>PDF-гід «Тривожний рюкзак»</td><td>від 300 грн</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="fade-in delay-2">Резюме</h2>
+    <div class="resume fade-in delay-3">
+      <h3>Про себе</h3>
+      <p>Ветеран, сертифікований інструктор з бойової підготовки, виживання, тактики та домедичної допомоги. Маю багаторічний досвід викладання та практичної роботи.</p>
+      <h3>Навички</h3>
+      <ul>
+        <li>Бойова підготовка та тактика</li>
+        <li>Самозахист (крав-мага, урбан тактика)</li>
+        <li>Базова домедична допомога</li>
+        <li>Польова тактика і партизанщина</li>
+        <li>Психологічна підготовка та стресостійкість</li>
+      </ul>
+      <h3>Досвід</h3>
+      <ul>
+        <li>Проведення тренувань і курсів для цивільних</li>
+        <li>Індивідуальні консультації по безпеці та виживанню</li>
+        <li>Розробка онлайн-матеріалів і відеоуроків</li>
+      </ul>
+    </div>
+
+    <h2 class="fade-in delay-4">Відгуки</h2>
+    <div class="reviews fade-in delay-4">
+      <img src="https://picsum.photos/id/1011/200" alt="Відгук 1" class="review-photo" />
+      <img src="https://picsum.photos/id/1012/200" alt="Відгук 2" class="review-photo" />
+      <img src="https://picsum.photos/id/1013/200" alt="Відгук 3" class="review-photo" />
+      <img src="https://picsum.photos/id/1015/200" alt="Відгук 4" class="review-photo" />
+      <img src="https://picsum.photos/id/1016/200" alt="Відгук 5" class="review-photo" />
+      <img src="https://picsum.photos/id/1018/200" alt="Відгук 6" class="review-photo" />
+    </div>
+  </div>
+</body>
+</html>
