@@ -196,9 +196,46 @@
         max-width: 100%;
       }
     }
+
+    /* Стили для переключателя языка */
+    .lang-switcher {
+      position: fixed;
+      top: 1rem;
+      right: 2rem;
+      z-index: 9999;
+    }
+    .lang-switcher button {
+      background: none;
+      border: 1px solid #fff;
+      color: #fff;
+      margin-left: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    .lang-switcher button:hover {
+      background-color: #ffd700;
+      color: #000;
+      border-color: #ffd700;
+    }
+
+    /* Скрываем все версии кроме активной */
+    .lang-content {
+      display: none;
+    }
+    .lang-content.active {
+      display: block;
+    }
   </style>
 </head>
 <body>
+
+<div class="lang-switcher" aria-label="Переключення мов">
+  <button id="btn-uk" aria-pressed="true" aria-label="Українська">UA</button>
+  <button id="btn-en" aria-pressed="false" aria-label="English">EN</button>
+</div>
 
 <header>
   <div class="logo">
@@ -207,35 +244,31 @@
   </div>
   <nav>
     <ul>
-      <li><a href="#home">Головна</a></li>
-      <li><a href="#about">Про мене</a></li>
-      <li><a href="#courses">Курси</a></li>
-      <li><a href="#reviews">Відгуки</a></li>
-      <li><a href="#contact">Контакти</a></li>
+      <li><a href="#home" class="nav-link">Головна</a></li>
+      <li><a href="#about" class="nav-link">Про мене</a></li>
+      <li><a href="#courses" class="nav-link">Курси</a></li>
+      <li><a href="#reviews" class="nav-link">Відгуки</a></li>
+      <li><a href="#contact" class="nav-link">Контакти</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
-  <section id="home">
+  <!-- УКРАЇНСЬКА ВЕРСІЯ -->
+  <section id="home" class="lang-content active" data-lang="uk">
     <h1>Навички виживання, що рятують життя. Перевірено війною</h1>
     <p style="text-align:center;">
       Ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року.  
-      Навчаю цивільних та військових виживати, захищатись і діяти впевнено у складних ситуаціях.
+      Навчаю цивільних і військових практичним методам виживання, самозахисту та тактики.
     </p>
-    <div style="text-align:center;">
-      <a href="#courses" class="cta-button" style="padding: 1rem 2rem; background:#ffd700; color:#000; font-weight:bold; text-transform:uppercase; border-radius:5px; text-decoration:none;">Дивитись курси</a>
-    </div>
   </section>
 
-  <section id="about">
+  <section id="about" class="lang-content active" data-lang="uk">
     <h2>Про мене</h2>
-    <p>Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року. Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага), польова тактика, партизанські дії, базова домедична допомога.</p>
-    <p>Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю офіційні подяки від бойових бригад та командирів.</p>
-    <p>Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено, рішуче та без паніки — коли це справді потрібно.</p>
+    <p>Я — Ari Einar, ветеран бойових дій із досвідом тактики, виживання і навчання. Мої курси побудовані на практичному досвіді та реальних ситуаціях.</p>
   </section>
 
-  <section id="courses">
+  <section id="courses" class="lang-content active" data-lang="uk">
     <h2>Курси та ціни</h2>
     <p>Пропоную комплексні тренінги та авторські курси для різних рівнів підготовки. Кожен курс побудований на практиці та реальному досвіді.</p>
     <table>
@@ -281,7 +314,7 @@
     </table>
   </section>
 
-  <section id="reviews">
+  <section id="reviews" class="lang-content active" data-lang="uk">
     <h2>Відгуки</h2>
     <p>Щиро дякую всім, хто довірився моїм тренінгам. Ось що кажуть учасники:</p>
     <div class="review-gallery">
@@ -292,7 +325,7 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="lang-content active" data-lang="uk">
     <h2>Зв'язок зі мною</h2>
     <form id="contactForm" action="https://formspree.io/f/myform" method="POST">
       <input type="text" name="name" placeholder="Ваше ім'я" required />
@@ -301,23 +334,133 @@
       <button type="submit">Відправити</button>
     </form>
   </section>
+
+  <!-- АНГЛИЙСКАЯ ВЕРСИЯ -->
+  <section id="home-en" class="lang-content" data-lang="en" style="display:none;">
+    <h1>Survival Skills That Save Lives. Battle-Tested.</h1>
+    <p style="text-align:center;">
+      Combat veteran and instructor with experience in Israel and defending Ukraine since 2022.  
+      Teaching civilians and military practical methods of survival, self-defense, and tactics.
+    </p>
+  </section>
+
+  <section id="about-en" class="lang-content" data-lang="en" style="display:none;">
+    <h2>About Me</h2>
+    <p>I am Ari Einar, a combat veteran with experience in tactics, survival, and training. My courses are built on practical experience and real-life situations.</p>
+  </section>
+
+  <section id="courses-en" class="lang-content" data-lang="en" style="display:none;">
+    <h2>Courses & Prices</h2>
+    <p>I offer comprehensive training and signature courses for various skill levels. Every course is practice-based and drawn from real experience.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Description</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Survival in Extreme Conditions</td>
+          <td>Skills for surviving in nature and combat conditions: navigation, shelter building, water and food procurement, basic first aid.</td>
+          <td>3500 UAH</td>
+        </tr>
+        <tr>
+          <td>Self-Defense and Krav Maga Tactics</td>
+          <td>Practical self-defense techniques, conflict de-escalation skills, work with cold weapons, effective strikes, defense against attacks in various situations.</td>
+          <td>4000 UAH</td>
+        </tr>
+        <tr>
+          <td>Field Tactics and Guerrilla Actions</td>
+          <td>Basics of tactical thinking, movement and concealment, teamwork, guerrilla techniques, covert surveillance and camouflage.</td>
+          <td>4500 UAH</td>
+        </tr>
+        <tr>
+          <td>Basic First Aid</td>
+          <td>Providing first aid in combat conditions, stopping bleeding, applying bandages, evacuating wounded, stabilizing condition before doctors arrive.</td>
+          <td>3000 UAH</td>
+        </tr>
+        <tr>
+          <td>Comprehensive Survival Course</td>
+          <td>Combines basics of survival, self-defense, and first aid. Ideal for those who want to prepare comprehensively.</td>
+          <td>10000 UAH</td>
+        </tr>
+        <tr>
+          <td>Individual Training</td>
+          <td>Personal training sessions with the instructor, tailored to skill level, needs, and client goals.</td>
+          <td>from 5000 UAH per session</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="reviews-en" class="lang-content" data-lang="en" style="display:none;">
+    <h2>Reviews</h2>
+    <p>Many thanks to everyone who trusted my trainings. Here is what participants say:</p>
+    <div class="review-gallery">
+      <img src="review1.jpg" alt="Review 1" />
+      <img src="review2.jpg" alt="Review 2" />
+      <img src="review3.jpg" alt="Review 3" />
+      <img src="review4.jpg" alt="Review 4" />
+    </div>
+  </section>
+
+  <section id="contact-en" class="lang-content" data-lang="en" style="display:none;">
+    <h2>Contact Me</h2>
+    <form id="contactFormEn" action="https://formspree.io/f/myform" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
 </main>
 
 <footer>
-  <p>© 2025 Ari Einar — Всі права захищені</p>
+  <p>© 2025 Ari Einar — All rights reserved</p>
 </footer>
 
-<!-- Скрипт для модального перегляду відгуків -->
-<div id="modal" onclick="closeModal()">
-  <img id="modalImg" src="" alt="Збільшене фото відгуку" />
+<!-- Модальное окно для увеличения фото отзывов -->
+<div id="modal" onclick="closeModal()" role="dialog" aria-modal="true" aria-label="Збільшене фото відгуку">
+  <img id="modal-img" src="" alt="" />
 </div>
 
 <script>
-  const galleryImages = document.querySelectorAll('.review-gallery img');
-  const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modalImg');
+  // Переключатель языка
+  const btnUk = document.getElementById('btn-uk');
+  const btnEn = document.getElementById('btn-en');
+  const ukContents = document.querySelectorAll('.lang-content[data-lang="uk"]');
+  const enContents = document.querySelectorAll('.lang-content[data-lang="en"]');
 
-  galleryImages.forEach(img => {
+  function showLang(lang) {
+    if(lang === 'uk') {
+      ukContents.forEach(el => { el.style.display = 'block'; el.classList.add('active'); });
+      enContents.forEach(el => { el.style.display = 'none'; el.classList.remove('active'); });
+      btnUk.setAttribute('aria-pressed', 'true');
+      btnEn.setAttribute('aria-pressed', 'false');
+      document.documentElement.lang = 'uk';
+    } else {
+      ukContents.forEach(el => { el.style.display = 'none'; el.classList.remove('active'); });
+      enContents.forEach(el => { el.style.display = 'block'; el.classList.add('active'); });
+      btnUk.setAttribute('aria-pressed', 'false');
+      btnEn.setAttribute('aria-pressed', 'true');
+      document.documentElement.lang = 'en';
+    }
+  }
+
+  btnUk.addEventListener('click', () => showLang('uk'));
+  btnEn.addEventListener('click', () => showLang('en'));
+
+  // Изначально показываем украинский
+  showLang('uk');
+
+  // Модалка для отзывов
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  const reviewImages = document.querySelectorAll('.review-gallery img');
+
+  reviewImages.forEach(img => {
     img.addEventListener('click', () => {
       modal.style.display = 'flex';
       modalImg.src = img.src;
@@ -327,9 +470,14 @@
 
   function closeModal() {
     modal.style.display = 'none';
-    modalImg.src = '';
-    modalImg.alt = '';
   }
+
+  // Закрывать модалку по клавише ESC
+  window.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && modal.style.display === 'flex') {
+      closeModal();
+    }
+  });
 </script>
 
 </body>
