@@ -1,202 +1,115 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ari Einar — Навички виживання</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Rubik', sans-serif;
-      background-color: #1a1a1a;
-      color: #f1f1f1;
-    }
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #101010;
-      padding: 1rem 2rem;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #333;
-    }
-    nav a {
-      color: #ccc;
-      text-decoration: none;
-      margin-left: 1rem;
-    }
-    nav a:hover {
-      color: #fff;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 7rem 1rem 2rem;
-    }
-    h1, h2 {
-      color: #e2e2e2;
-      border-left: 4px solid #4CAF50;
-      padding-left: 1rem;
-    }
-    section {
-      margin-bottom: 4rem;
-    }
-    .grid {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-    .card {
-      background: #2a2a2a;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    }
-    .card:hover {
-      transform: scale(1.03);
-      transition: 0.3s;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    th, td {
-      border: 1px solid #444;
-      padding: 0.75rem;
-      text-align: left;
-    }
-    th {
-      background-color: #333;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-    .gallery img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    .gallery img:hover {
-      transform: scale(1.1);
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #121212;
-      border-top: 1px solid #333;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background: #4CAF50;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-    .btn:hover {
-      background: #43a047;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Survival, self-defense, tactics courses. Author trainings by Ari Einar — combat veteran." />
+  <meta name="keywords" content="survival, self-defense, tactics, Krav Maga, combat experience, courses, Ari Einar" />
+  <meta name="author" content="Ari Einar" />
+  <title>Ari Einar | Survival & Self-Defense Courses</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo.png" alt="Ari Einar Logo" class="logo-image" />
+        Ari Einar
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1>Skills that Save Lives</h1>
+      <p>Tested in combat. Training that builds confidence.</p>
+      <a href="#courses" class="cta-button">View Courses</a>
+    </div>
+  </header>
 
-<header>
-  <div><strong>Ari Einar</strong></div>
-  <nav>
-    <a href="#about">Про мене</a>
-    <a href="#courses">Курси</a>
-    <a href="#reviews">Відгуки</a>
-    <a href="#contact">Контакти</a>
-  </nav>
-</header>
-
-<div class="container">
-
-  <section id="hero">
-    <h1>Навички виживання, що рятують життя</h1>
-    <p>Реальний досвід. Реальні знання. Перевірено війною.</p>
-    <a href="#courses" class="btn">Дивитись курси</a>
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>
+      I am a combat veteran and instructor with experience serving in Israel and defending Ukraine since 2022. 
+      Specialized in training civilians and military personnel for real threat situations: survival, self-defense (Krav Maga), field tactics, guerrilla warfare, and basic first aid.
+    </p>
+    <p>
+      I have trained hundreds of people, including defense forces units. Provided free training for military for extended periods, for which I have official commendations from combat brigades and commanders.
+    </p>
+    <p>
+      I create original courses based on real combat and volunteer experience so everyone can learn to act confidently, decisively, and without panic when it really matters.
+    </p>
   </section>
 
-  <section id="about">
-    <h2>Про мене</h2>
-    <p>Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року. Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага), польова тактика, партизанські дії, базова домедична допомога.</p>
-    <p>Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю офіційні подяки від бойових бригад та командирів.</p>
-    <p>Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено, рішуче та без паніки — коли це справді потрібно.</p>
-  </section>
+  <section id="courses" class="section">
+    <h2>Courses & Training</h2>
 
-  <section id="courses">
-    <h2>Курси та навчання</h2>
-
-    <h3>1. Особисті тренування</h3>
+    <h3>1. Self-Defense (Krav Maga, Urban)</h3>
     <table>
-      <thead><tr><th>Назва</th><th>Тривалість</th><th>Ціна</th></tr></thead>
+      <thead><tr><th>Course</th><th>Duration</th><th>Price per person</th></tr></thead>
       <tbody>
-        <tr><td>Самозахист (крав-мага, урбан)</td><td>від 90 хв</td><td>від 2000 грн</td></tr>
-        <tr><td>Поведінка під загрозою (обстріл, штурм)</td><td>від 90 хв</td><td>від 2500 грн</td></tr>
-        <tr><td>CQB: бої в приміщеннях (базовий рівень)</td><td>від 90 хв</td><td>від 2500 грн</td></tr>
-        <tr><td>72 години автономії</td><td>від 120 хв</td><td>від 2200 грн</td></tr>
+        <tr><td>Self-Defense (Krav Maga, Urban)</td><td>From 90 min</td><td>From 2000 UAH</td></tr>
+        <tr><td>Behavior under threat (shelling, assault)</td><td>From 90 min</td><td>From 2500 UAH</td></tr>
+        <tr><td>CQB: Close Quarters Battle (basic)</td><td>From 90 min</td><td>From 2500 UAH</td></tr>
+        <tr><td>72-hour Autonomy</td><td>From 120 min</td><td>From 2200 UAH</td></tr>
       </tbody>
     </table>
 
-    <h3>2. Курси / семінари</h3>
+    <h3>2. Courses / Seminars</h3>
     <table>
-      <thead><tr><th>Курс</th><th>Тривалість</th><th>Ціна з людини</th></tr></thead>
+      <thead><tr><th>Course</th><th>Duration</th><th>Price per person</th></tr></thead>
       <tbody>
-        <tr><td>Основи виживання</td><td>від 3 год</td><td>від 800 грн</td></tr>
-        <tr><td>Особиста безпека для цивільних</td><td>від 4 год</td><td>від 1000 грн</td></tr>
-        <tr><td>Польова тактика</td><td>від 6 год</td><td>від 1500 грн</td></tr>
-        <tr><td>CQB / SERE / партизанська тактика</td><td>від 6 год</td><td>від 2000 грн</td></tr>
-        <tr><td>Базова домедична допомога</td><td>від 4 год</td><td>від 1200 грн</td></tr>
+        <tr><td>Basics of Survival</td><td>From 3 hours</td><td>From 800 UAH</td></tr>
+        <tr><td>Personal Security for Civilians</td><td>From 4 hours</td><td>From 1000 UAH</td></tr>
+        <tr><td>Field Tactics</td><td>From 6 hours</td><td>From 1500 UAH</td></tr>
+        <tr><td>CQB / SERE / Guerrilla Tactics</td><td>From 6 hours</td><td>From 2000 UAH</td></tr>
+        <tr><td>Basic First Aid</td><td>From 4 hours</td><td>From 1200 UAH</td></tr>
       </tbody>
     </table>
 
-    <h3>3. Онлайн-курси та матеріали</h3>
+    <h3>3. Online Courses & Materials</h3>
     <table>
-      <thead><tr><th>Продукт</th><th>Ціна</th></tr></thead>
+      <thead><tr><th>Product</th><th>Price</th></tr></thead>
       <tbody>
-        <tr><td>Відеокурс «Виживання в місті»</td><td>від 700 грн</td></tr>
-        <tr><td>Онлайн-курс з самозахисту</td><td>від 600 грн</td></tr>
-        <tr><td>PDF-гід «Тривожний рюкзак»</td><td>від 300 грн</td></tr>
+        <tr><td>Video Course "Urban Survival"</td><td>From 700 UAH</td></tr>
+        <tr><td>Online Self-Defense Course</td><td>From 600 UAH</td></tr>
+        <tr><td>PDF Guide "Bug-out Bag"</td><td>From 300 UAH</td></tr>
       </tbody>
     </table>
   </section>
 
-  <section id="reviews">
-    <h2>Відгуки</h2>
-    <div class="gallery">
-      <img src="review1.jpg" alt="Відгук 1">
-      <img src="review2.jpg" alt="Відгук 2">
-      <img src="review3.jpg" alt="Відгук 3">
-      <img src="review4.jpg" alt="Відгук 4">
+  <section id="reviews" class="section">
+    <h2>Reviews</h2>
+    <div class="review-gallery">
+      <img src="review1.jpg" alt="Review 1" tabindex="0" />
+      <img src="review2.jpg" alt="Review 2" tabindex="0" />
+      <img src="review3.jpg" alt="Review 3" tabindex="0" />
+      <img src="review4.jpg" alt="Review 4" tabindex="0" />
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Контакти</h2>
-    <p>Email: <a href="mailto:ari.einar@protonmail.com">ari.einar@protonmail.com</a></p>
-    <p>Telegram: <a href="https://t.me/Arieinar" target="_blank">@Arieinar</a></p>
-    <a href="https://t.me/Arieinar" class="btn">Написати в Telegram</a>
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <form id="contactForm" action="#" method="post">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <textarea name="message" placeholder="Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="contact-info">
+      <p>Telegram: <a href="https://t.me/ari_einar" target="_blank">@ari_einar</a></p>
+      <p>Email: <a href="mailto:ari.einar@example.com">ari.einar@example.com</a></p>
+    </div>
   </section>
 
-</div>
+  <footer>
+    &copy; 2025 Ari Einar. All rights reserved.
+  </footer>
 
-<footer>
-  <p>© 2025 Ari Einar. Всі права захищено.</p>
-</footer>
-
+  <script src="scripts.js"></script>
 </body>
 </html>
