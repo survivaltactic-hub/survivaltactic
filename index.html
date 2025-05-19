@@ -16,7 +16,7 @@
   }
   .container {
     max-width: 900px;
-    margin: 60px auto;
+    margin: 60px auto 80px;
     padding: 0 20px 60px;
   }
   h1, h2, h3 {
@@ -83,9 +83,7 @@
     background: #333;
   }
   .btn {
-    display: block;
-    width: max-content;
-    margin: 0 auto 40px;
+    display: inline-block;
     padding: 14px 28px;
     background-color: #f0a500;
     color: #121212;
@@ -96,9 +94,11 @@
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s ease;
+    user-select: none;
   }
-  .btn:hover {
+  .btn:hover, .btn:focus {
     background-color: #cc8500;
+    outline: none;
   }
 
   /* Анимация появления */
@@ -125,35 +125,98 @@
     }
   }
 
-  /* Отзывы - фотки */
-  .reviews {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 50px;
+  /* Отзывы - сетка и лайтбокс */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+    gap: 15px;
+    max-width: 720px;
+    margin: 0 auto 50px;
   }
   .review-photo {
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
-    box-shadow: 0 0 6px rgba(240, 165, 0, 0.7);
   }
-  .review-photo:hover {
-    transform: scale(1.3);
-    z-index: 10;
+  .review-photo:hover, .review-photo:focus {
+    transform: scale(1.15);
+    outline: none;
   }
 
-  /* Резюме стиль */
-  .resume h3 {
-    margin-top: 40px;
+  /* Модальное окно */
+  .modal {
+    position: fixed;
+    display: none;
+    top: 0; left: 0; right:0; bottom: 0;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
   }
-  .resume ul {
-    max-width: 600px;
-    margin: 0 auto 30px;
+  .modal.active {
+    display: flex;
+  }
+  .modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 0 25px #f0a500;
+  }
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2.5rem;
+    color: #f0a500;
+    cursor: pointer;
+    user-select: none;
+  }
+  .modal-close:hover, .modal-close:focus {
+    color: #cc8500;
+    outline: none;
+  }
+
+  /* Форма контактов */
+  form {
+    max-width: 720px;
+    margin: 0 auto 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  input, textarea {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+  input:focus, textarea:focus {
+    outline: 2px solid #f0a500;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  button[type="submit"] {
+    width: max-content;
+    margin: 0 auto;
+    padding: 14px 28px;
+    background-color: #f0a500;
+    color: #121212;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button[type="submit"]:hover, button[type="submit"]:focus {
+    background-color: #cc8500;
+    outline: none;
   }
 
   /* Responsive */
@@ -161,23 +224,30 @@
     h1 { font-size: 2.2rem; }
     h2 { font-size: 1.5rem; }
     table, th, td { font-size: 0.9rem; }
-    .review-photo {
-      width: 90px;
-      height: 90px;
+    form {
+      padding: 0 10px;
     }
   }
 </style>
 </head>
 <body>
   <div class="container">
+
     <h1 class="fade-in">Ari Einar</h1>
     <h2 class="fade-in delay-1">Виживання. Самозахист. Тактика. Базова медицина</h2>
     <p class="fade-in delay-2">
       Ветеран, сертифікований інструктор із бойової підготовки, базової домедичної допомоги та тактики виживання. Проводжу консультації, тренування, курси для цивільних.
     </p>
 
-    <h2 class="fade-in delay-3">Мої послуги</h2>
-    <ul class="fade-in delay-3">
+    <h2 class="fade-in delay-3">Про мене</h2>
+    <p class="fade-in delay-3" style="max-width:720px; margin: 0 auto 40px;">
+      Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року. Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага), польова тактика, партизанські дії, базова домедична допомога.<br><br>
+      Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю офіційні подяки від бойових бригад та командирів.<br><br>
+      Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено, рішуче та без паніки — коли це справді потрібно.
+    </p>
+
+    <h2 class="fade-in">Мої послуги</h2>
+    <ul class="fade-in">
       <li>Індивідуальні консультації по виживанню, психології, безпеці</li>
       <li>Тренування з самозахисту (крав-мага, урбан тактика)</li>
       <li>Навчання боям в приміщеннях (CQB / SERE)</li>
@@ -201,7 +271,7 @@
       </tbody>
     </table>
 
-    <h3 class="fade-in delay-2">2.Індивідуальні тренування</h3>
+    <h3 class="fade-in delay-2">2. Індивідуальні тренування</h3>
     <table class="fade-in delay-2">
       <thead>
         <tr><th>Тема</th><th>Тривалість</th><th>Ціна</th></tr>
@@ -240,41 +310,100 @@
       </tbody>
     </table>
 
-    <h2 class="fade-in delay-2">Резюме</h2>
-    <div class="resume fade-in delay-3">
-      <h3>Про мене</h3>
-      <p>Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року. Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага), польова тактика, партизанські дії, базова домедична допомога.</p>
-      <p>Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю офіційні подяки від бойових бригад та командирів.</p>
-      <p>Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено, рішуче та без паніки — коли це справді потрібно.</p>
-
-      <h3>Навички</h3>
-      <ul>
-        <li>Бойова підготовка та тактика</li>
-        <li>Самозахист (крав-мага, урбан тактика)</li>
-        <li>Базова домедична допомога</li>
-        <li>Польова тактика і партизанщина</li>
-        <li>Психологічна підготовка та стресостійкість</li>
-      </ul>
-
-      <h3>Досвід</h3>
-      <ul>
-        <li>Проведення тренувань і курсів для цивільних</li>
-        <li>Індивідуальні консультації по безпеці та виживанню</li>
-        <li>Розробка онлайн-матеріалів і відеоуроків</li>
-      </ul>
+    <h2 class="fade-in">Відгуки</h2>
+    <div class="reviews-grid fade-in delay-2" role="list">
+      <img tabindex="0" src="https://via.placeholder.com/150" alt="Відгук 1" class="review-photo" />
+      <img tabindex="0" src="https://via.placeholder.com/151" alt="Відгук 2" class="review-photo" />
+      <img tabindex="0" src="https://via.placeholder.com/152" alt="Відгук 3" class="review-photo" />
+      <img tabindex="0" src="https://via.placeholder.com/153" alt="Відгук 4" class="review-photo" />
+      <img tabindex="0" src="https://via.placeholder.com/154" alt="Відгук 5" class="review-photo" />
+      <img tabindex="0" src="https://via.placeholder.com/155" alt="Відгук 6" class="review-photo" />
     </div>
 
-    <h2 class="fade-in delay-2">Відгуки</h2>
-    <div class="reviews fade-in delay-3">
-      <img src="https://via.placeholder.com/200?text=Фото+1" alt="Відгук 1" class="review-photo" />
-      <img src="https://via.placeholder.com/200?text=Фото+2" alt="Відгук 2" class="review-photo" />
-      <img src="https://via.placeholder.com/200?text=Фото+3" alt="Відгук 3" class="review-photo" />
-      <img src="https://via.placeholder.com/200?text=Фото+4" alt="Відгук 4" class="review-photo" />
-      <img src="https://via.placeholder.com/200?text=Фото+5" alt="Відгук 5" class="review-photo" />
+    <h2 class="fade-in">FAQ</h2>
+    <ul class="fade-in">
+      <li>Як проходять тренування?</li>
+      <li>Кому підходить навчання?</li>
+      <li>Що потрібно мати з собою на заняття?</li>
+      <li>Як записатись на курс чи консультацію?</li>
+    </ul>
+
+    <h2 class="fade-in">Контакти</h2>
+    <form class="fade-in" id="contactForm">
+      <input type="text" id="name" name="name" placeholder="Ваше ім'я" required />
+      <input type="email" id="email" name="email" placeholder="Ваш Email" required />
+      <textarea id="message" name="message" placeholder="Ваше повідомлення" required></textarea>
+      <button type="submit">Відправити</button>
+    </form>
+    <div class="contact-section fade-in">
+      <p style="text-align:center; margin-top:20px;">
+        <a href="mailto:ari@example.com" class="btn" aria-label="Написати на пошту">Написати на пошту</a>
+      </p>
+      <p style="text-align:center; margin-top:10px;">
+        <a href="https://t.me/ari_einar" target="_blank" rel="noopener" class="btn" style="background:#0088cc;" aria-label="Приєднатися до Telegram-чату">
+          Приєднатися до Telegram-чату
+        </a>
+      </p>
     </div>
-
-    <a href="mailto:ari@example.com" class="btn fade-in delay-3">Записатися на консультацію</a>
-
   </div>
+
+  <!-- Модальное окно для отзывов -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <span id="modalClose" class="modal-close" role="button" tabindex="0" aria-label="Закрити">×</span>
+    <img id="modalImg" src="" alt="" />
+  </div>
+
+<script>
+  // Модалка отзывов
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modalImg');
+  const modalClose = document.getElementById('modalClose');
+  const photos = document.querySelectorAll('.review-photo');
+
+  photos.forEach(photo => {
+    photo.addEventListener('click', () => {
+      modalImg.src = photo.src;
+      modalImg.alt = photo.alt;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+    });
+    photo.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        photo.click();
+      }
+    });
+  });
+
+  function closeModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    modalImg.src = '';
+    modalImg.alt = '';
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modalClose.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      closeModal();
+    }
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Контактная форма - пример простой проверки и сброса
+  const contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Дякую за повідомлення! Зв\'яжуся з вами найближчим часом.');
+    contactForm.reset();
+  });
+</script>
+
 </body>
 </html>
