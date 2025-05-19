@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Survival, self-defense, and tactical courses. Original trainings by Ari Einar — combat veteran." />
+  <meta name="keywords" content="survival, self-defense, tactics, Krav Maga, combat experience, courses, Ari Einar" />
+  <meta name="author" content="Ari Einar" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Ari Einar | Survival & Self-Defense Training" />
+  <meta property="og:description" content="Original survival, tactical, and self-defense courses by a combat veteran." />
+  <meta property="og:image" content="preview.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://arieinar.com/en.html" />
+  <title>Ari Einar | Survival & Self-Defense Training</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #f4f4f4;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #1a1a1a;
+      border-bottom: 1px solid #333;
+      flex-wrap: wrap;
+    }
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f4f4f4;
+    }
+    .logo-image {
+      width: 40px;
+      height: auto;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-left: 0;
+    }
+    .nav-links li {
+      margin: 0;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #f4f4f4;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #ffd700;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: url('hero-bg.jpg') center/cover no-repeat;
+      background-blend-mode: overlay;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .cta-button {
+      background-color: #ffd700;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #e6c200;
+    }
+    .section {
+      padding: 3rem 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #555;
+    }
+    th {
+      background-color: #222;
+    }
+    .review-gallery {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .review-gallery img {
+      width: 200px;
+      height: auto;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: transform 0.3s ease;
+    }
+    .zoomed {
+      transform: scale(2);
+      z-index: 100;
+      position: relative;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea, button {
+      padding: 0.75rem;
+      border-radius: 4px;
+      border: none;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #ffd700;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    .lang-switcher {
+      position: fixed;
+      top: 1rem;
+      right: 2rem;
+      z-index: 999;
+    }
+    .lang-switcher button {
+      background: none;
+      border: 1px solid #fff;
+      color: #fff;
+      margin-left: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+    }
+  </style>
+  <script>
+    function switchLanguage(lang) {
+      window.location.href = lang + ".html";
+    }
+  </script>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="logo.png" alt="Ari Einar Logo" class="logo-image" />
+    Ari Einar
+  </div>
+  <ul class="nav-links">
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button onclick="switchLanguage('uk')">UA</button>
+    <button disabled>EN</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Survival Skills That Save Lives. Tested by War.</h1>
+  <button class="cta-button" onclick="document.getElementById('courses').scrollIntoView({behavior: 'smooth'});">View Courses</button>
+</section>
+
+<section id="about" class="section">
+  <h2>About Me</h2>
+  <p>I am a combat veteran and instructor with experience serving in Israel and defending Ukraine since 2022. I specialize in preparing civilians and military personnel to act effectively under real threats: survival, self-defense (Krav Maga), field tactics, guerrilla warfare, and basic medical aid.</p>
+  <p>I have trained hundreds of people, including defense forces units. For a long time, I provided free training to military personnel, for which I have official thanks from combat brigades and commanders.</p>
+  <p>I create original courses based on real combat and volunteer experience so everyone can learn to act confidently, decisively, and without panic when it really matters.</p>
+</section>
+
+<section id="courses" class="section">
+  <h2>Courses & Training</h2>
+
+  <h3>1. Self-Defense (Krav Maga, Urban)</h3>
+  <table>
+    <thead><tr><th>Course</th><th>Duration</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr><td>Self-Defense (Krav Maga, Urban)</td><td>from 90 min</td><td>from 2000 UAH</td></tr>
+      <tr><td>Behavior Under Threat (Shelling, Assault)</td><td>from 90 min</td><td>from 2500 UAH</td></tr>
+      <tr><td>CQB: Close Quarters Battle (Basic Level)</td><td>from 90 min</td><td>from 2500 UAH</td></tr>
+      <tr><td>72 Hours Autonomy</td><td>from 120 min</td><td>from 2200 UAH</td></tr>
+    </tbody>
+  </table>
+
+  <h3>2. Courses / Seminars</h3>
+  <table>
+    <thead><tr><th>Course</th><th>Duration</th><th>Price per person</th></tr></thead>
+    <tbody>
+      <tr><td>Basics of Survival</td><td>from 3 hours</td><td>from 800 UAH</td></tr>
+      <tr><td>Personal Safety for Civilians</td><td>from 4 hours</td><td>from 1000 UAH</td></tr>
+      <tr><td>Field Tactics</td><td>from 6 hours</td><td>from 1500 UAH</td></tr>
+      <tr><td>Basic Medical Aid</td><td>from 4 hours</td><td>from 1000 UAH</td></tr>
+      <tr><td>Guerrilla Warfare</td><td>from 6 hours</td><td>from 1500 UAH</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="reviews" class="section">
+  <h2>Reviews</h2>
+  <div class="review-gallery">
+    <img src="review1.jpg" alt="Review 1" />
+    <img src="review2.jpg" alt="Review 2" />
+    <img src="review3.jpg" alt="Review 3" />
+    <img src="review4.jpg" alt="Review 4" />
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact Me</h2>
+  <form action="send_form.php" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Ari Einar. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
