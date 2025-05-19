@@ -1,281 +1,149 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ari Einar — Виживання, Самозахист, Тактика</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-  body {
-    margin: 0; padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: #121212;
-    color: #eee;
-    line-height: 1.6;
-  }
-  .container {
-    max-width: 900px;
-    margin: 60px auto 80px;
-    padding: 0 20px 60px;
-  }
-  h1, h2, h3 {
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 15px;
-    color: #f0a500;
-  }
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 5px;
-  }
-  h2 {
-    font-size: 2rem;
-  }
-  p, ul {
-    font-weight: 400;
-    font-size: 1.1rem;
-    max-width: 720px;
-    margin: 0 auto 30px auto;
-    color: #ddd;
-  }
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  ul li {
-    margin-bottom: 12px;
-    padding-left: 20px;
-    position: relative;
-  }
-  ul li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #f0a500;
-    font-size: 1.3rem;
-    line-height: 1;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 50px;
-    background: #222;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  th, td {
-    padding: 15px 20px;
-    text-align: left;
-  }
-  th {
-    background: #f0a500;
-    color: #121212;
-    font-weight: 700;
-    font-size: 1.1rem;
-  }
-  td {
-    border-top: 1px solid #444;
-    color: #ddd;
-    font-weight: 500;
-  }
-  tr:hover {
-    background: #333;
-  }
-  .btn {
-    display: inline-block;
-    padding: 14px 28px;
-    background-color: #f0a500;
-    color: #121212;
-    font-weight: 700;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    user-select: none;
-  }
-  .btn:hover, .btn:focus {
-    background-color: #cc8500;
-    outline: none;
-  }
-
-  /* Анимация появления */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation-fill-mode: forwards;
-    animation-name: fadeInUp;
-    animation-duration: 1s;
-  }
-  .fade-in.delay-1 {
-    animation-delay: 0.3s;
-  }
-  .fade-in.delay-2 {
-    animation-delay: 0.6s;
-  }
-  .fade-in.delay-3 {
-    animation-delay: 0.9s;
-  }
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ari Einar — Навички виживання</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+      background-color: #1a1a1a;
+      color: #f1f1f1;
     }
-  }
-
-  /* Отзывы - сетка и лайтбокс */
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
-    gap: 15px;
-    max-width: 720px;
-    margin: 0 auto 50px;
-  }
-  .review-photo {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  .review-photo:hover, .review-photo:focus {
-    transform: scale(1.15);
-    outline: none;
-  }
-
-  /* Модальное окно */
-  .modal {
-    position: fixed;
-    display: none;
-    top: 0; left: 0; right:0; bottom: 0;
-    background: rgba(0,0,0,0.85);
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
-  .modal.active {
-    display: flex;
-  }
-  .modal img {
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: 10px;
-    box-shadow: 0 0 25px #f0a500;
-  }
-  .modal-close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 2.5rem;
-    color: #f0a500;
-    cursor: pointer;
-    user-select: none;
-  }
-  .modal-close:hover, .modal-close:focus {
-    color: #cc8500;
-    outline: none;
-  }
-
-  /* Форма контактов */
-  form {
-    max-width: 720px;
-    margin: 0 auto 50px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  input, textarea {
-    padding: 12px 15px;
-    border-radius: 8px;
-    border: none;
-    font-size: 1rem;
-    font-family: 'Montserrat', sans-serif;
-  }
-  input:focus, textarea:focus {
-    outline: 2px solid #f0a500;
-  }
-  textarea {
-    resize: vertical;
-    min-height: 120px;
-  }
-  button[type="submit"] {
-    width: max-content;
-    margin: 0 auto;
-    padding: 14px 28px;
-    background-color: #f0a500;
-    color: #121212;
-    font-weight: 700;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  button[type="submit"]:hover, button[type="submit"]:focus {
-    background-color: #cc8500;
-    outline: none;
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.5rem; }
-    table, th, td { font-size: 0.9rem; }
-    form {
-      padding: 0 10px;
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #101010;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
     }
-  }
-</style>
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 7rem 1rem 2rem;
+    }
+    h1, h2 {
+      color: #e2e2e2;
+      border-left: 4px solid #4CAF50;
+      padding-left: 1rem;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .card {
+      background: #2a2a2a;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    .card:hover {
+      transform: scale(1.03);
+      transition: 0.3s;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 0.75rem;
+      text-align: left;
+    }
+    th {
+      background-color: #333;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #121212;
+      border-top: 1px solid #333;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #43a047;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
 
-    <h1 class="fade-in">Ari Einar</h1>
-    <h2 class="fade-in delay-1">Виживання. Самозахист. Тактика. Базова медицина</h2>
-    <p class="fade-in delay-2">
-      Ветеран, сертифікований інструктор із бойової підготовки, базової домедичної допомоги та тактики виживання. Проводжу консультації, тренування, курси для цивільних.
-    </p>
+<header>
+  <div><strong>Ari Einar</strong></div>
+  <nav>
+    <a href="#about">Про мене</a>
+    <a href="#courses">Курси</a>
+    <a href="#reviews">Відгуки</a>
+    <a href="#contact">Контакти</a>
+  </nav>
+</header>
 
-    <h2 class="fade-in delay-3">Про мене</h2>
-    <p class="fade-in delay-3" style="max-width:720px; margin: 0 auto 40px;">
-      Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року. Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага), польова тактика, партизанські дії, базова домедична допомога.<br><br>
-      Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю офіційні подяки від бойових бригад та командирів.<br><br>
-      Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено, рішуче та без паніки — коли це справді потрібно.
-    </p>
+<div class="container">
 
-    <h2 class="fade-in">Мої послуги</h2>
-    <ul class="fade-in">
-      <li>Індивідуальні консультації по виживанню, психології, безпеці</li>
-      <li>Тренування з самозахисту (крав-мага, урбан тактика)</li>
-      <li>Навчання боям в приміщеннях (CQB / SERE)</li>
-      <li>Курси з польової тактики, партизанщини</li>
-      <li>Базова домедична допомога</li>
-      <li>Онлайн-матеріали і відеоуроки</li>
-    </ul>
+  <section id="hero">
+    <h1>Навички виживання, що рятують життя</h1>
+    <p>Реальний досвід. Реальні знання. Перевірено війною.</p>
+    <a href="#courses" class="btn">Дивитись курси</a>
+  </section>
 
-    <h2 class="fade-in">Прайс</h2>
+  <section id="about">
+    <h2>Про мене</h2>
+    <p>Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року. Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага), польова тактика, партизанські дії, базова домедична допомога.</p>
+    <p>Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю офіційні подяки від бойових бригад та командирів.</p>
+    <p>Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено, рішуче та без паніки — коли це справді потрібно.</p>
+  </section>
 
-    <h3 class="fade-in delay-1">1. Консультації</h3>
-    <table class="fade-in delay-1">
-      <thead>
-        <tr><th>Послуга</th><th>Тривалість</th><th>Ціна</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Підготовка до евакуації / автономії</td><td>від 90 хв</td><td>від 2500 грн</td></tr>
-        <tr><td>Персональна стратегія безпеки</td><td>від 60 хв</td><td>від 2000 грн</td></tr>
-        <tr><td>Психологічна стійкість / ПТСР</td><td>від 60 хв</td><td>від 1800 грн</td></tr>
-        <tr><td>Підготовка сім’ї / волонтерів / ЗМІ</td><td>від 60 хв</td><td>від 1500 грн</td></tr>
-      </tbody>
-    </table>
+  <section id="courses">
+    <h2>Курси та навчання</h2>
 
-    <h3 class="fade-in delay-2">2. Індивідуальні тренування</h3>
-    <table class="fade-in delay-2">
-      <thead>
-        <tr><th>Тема</th><th>Тривалість</th><th>Ціна</th></tr>
-      </thead>
+    <h3>1. Особисті тренування</h3>
+    <table>
+      <thead><tr><th>Назва</th><th>Тривалість</th><th>Ціна</th></tr></thead>
       <tbody>
         <tr><td>Самозахист (крав-мага, урбан)</td><td>від 90 хв</td><td>від 2000 грн</td></tr>
         <tr><td>Поведінка під загрозою (обстріл, штурм)</td><td>від 90 хв</td><td>від 2500 грн</td></tr>
@@ -284,11 +152,9 @@
       </tbody>
     </table>
 
-    <h3 class="fade-in delay-3">3. Курси / семінари</h3>
-    <table class="fade-in delay-3">
-      <thead>
-        <tr><th>Курс</th><th>Тривалість</th><th>Ціна з людини</th></tr>
-      </thead>
+    <h3>2. Курси / семінари</h3>
+    <table>
+      <thead><tr><th>Курс</th><th>Тривалість</th><th>Ціна з людини</th></tr></thead>
       <tbody>
         <tr><td>Основи виживання</td><td>від 3 год</td><td>від 800 грн</td></tr>
         <tr><td>Особиста безпека для цивільних</td><td>від 4 год</td><td>від 1000 грн</td></tr>
@@ -298,112 +164,39 @@
       </tbody>
     </table>
 
-    <h3 class="fade-in delay-1">4. Онлайн-курси та матеріали</h3>
-    <table class="fade-in delay-1">
-      <thead>
-        <tr><th>Продукт</th><th>Ціна</th></tr>
-      </thead>
+    <h3>3. Онлайн-курси та матеріали</h3>
+    <table>
+      <thead><tr><th>Продукт</th><th>Ціна</th></tr></thead>
       <tbody>
         <tr><td>Відеокурс «Виживання в місті»</td><td>від 700 грн</td></tr>
         <tr><td>Онлайн-курс з самозахисту</td><td>від 600 грн</td></tr>
         <tr><td>PDF-гід «Тривожний рюкзак»</td><td>від 300 грн</td></tr>
       </tbody>
     </table>
+  </section>
 
-    <h2 class="fade-in">Відгуки</h2>
-    <div class="reviews-grid fade-in delay-2" role="list">
-      <img tabindex="0" src="https://via.placeholder.com/150" alt="Відгук 1" class="review-photo" />
-      <img tabindex="0" src="https://via.placeholder.com/151" alt="Відгук 2" class="review-photo" />
-      <img tabindex="0" src="https://via.placeholder.com/152" alt="Відгук 3" class="review-photo" />
-      <img tabindex="0" src="https://via.placeholder.com/153" alt="Відгук 4" class="review-photo" />
-      <img tabindex="0" src="https://via.placeholder.com/154" alt="Відгук 5" class="review-photo" />
-      <img tabindex="0" src="https://via.placeholder.com/155" alt="Відгук 6" class="review-photo" />
+  <section id="reviews">
+    <h2>Відгуки</h2>
+    <div class="gallery">
+      <img src="review1.jpg" alt="Відгук 1">
+      <img src="review2.jpg" alt="Відгук 2">
+      <img src="review3.jpg" alt="Відгук 3">
+      <img src="review4.jpg" alt="Відгук 4">
     </div>
+  </section>
 
-    <h2 class="fade-in">FAQ</h2>
-    <ul class="fade-in">
-      <li>Як проходять тренування?</li>
-      <li>Кому підходить навчання?</li>
-      <li>Що потрібно мати з собою на заняття?</li>
-      <li>Як записатись на курс чи консультацію?</li>
-    </ul>
+  <section id="contact">
+    <h2>Контакти</h2>
+    <p>Email: <a href="mailto:ari.einar@protonmail.com">ari.einar@protonmail.com</a></p>
+    <p>Telegram: <a href="https://t.me/Arieinar" target="_blank">@Arieinar</a></p>
+    <a href="https://t.me/Arieinar" class="btn">Написати в Telegram</a>
+  </section>
 
-    <h2 class="fade-in">Контакти</h2>
-    <form class="fade-in" id="contactForm">
-      <input type="text" id="name" name="name" placeholder="Ваше ім'я" required />
-      <input type="email" id="email" name="email" placeholder="Ваш Email" required />
-      <textarea id="message" name="message" placeholder="Ваше повідомлення" required></textarea>
-      <button type="submit">Відправити</button>
-    </form>
-    <div class="contact-section fade-in">
-      <p style="text-align:center; margin-top:20px;">
-        <a href="mailto:ari@example.com" class="btn" aria-label="Написати на пошту">Написати на пошту</a>
-      </p>
-      <p style="text-align:center; margin-top:10px;">
-        <a href="https://t.me/ari_einar" target="_blank" rel="noopener" class="btn" style="background:#0088cc;" aria-label="Приєднатися до Telegram-чату">
-          Приєднатися до Telegram-чату
-        </a>
-      </p>
-    </div>
-  </div>
+</div>
 
-  <!-- Модальное окно для отзывов -->
-  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
-    <span id="modalClose" class="modal-close" role="button" tabindex="0" aria-label="Закрити">×</span>
-    <img id="modalImg" src="" alt="" />
-  </div>
-
-<script>
-  // Модалка отзывов
-  const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modalImg');
-  const modalClose = document.getElementById('modalClose');
-  const photos = document.querySelectorAll('.review-photo');
-
-  photos.forEach(photo => {
-    photo.addEventListener('click', () => {
-      modalImg.src = photo.src;
-      modalImg.alt = photo.alt;
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-    });
-    photo.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        photo.click();
-      }
-    });
-  });
-
-  function closeModal() {
-    modal.classList.remove('active');
-    modal.setAttribute('aria-hidden', 'true');
-    modalImg.src = '';
-    modalImg.alt = '';
-  }
-
-  modalClose.addEventListener('click', closeModal);
-  modalClose.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      closeModal();
-    }
-  });
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-
-  // Контактная форма - пример простой проверки и сброса
-  const contactForm = document.getElementById('contactForm');
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Дякую за повідомлення! Зв\'яжуся з вами найближчим часом.');
-    contactForm.reset();
-  });
-</script>
+<footer>
+  <p>© 2025 Ari Einar. Всі права захищено.</p>
+</footer>
 
 </body>
 </html>
