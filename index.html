@@ -15,6 +15,9 @@
   <meta property="og:url" content="https://arieinar.com" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       background-color: #0e0e0e;
       color: #f4f4f4;
@@ -195,6 +198,25 @@
       form {
         max-width: 100%;
       }
+      #languageToggle {
+        margin-top: 0.5rem;
+      }
+    }
+    /* Кнопка переключения языка */
+    #languageToggle {
+      background: none;
+      border: 1px solid #ffd700;
+      color: #ffd700;
+      font-weight: bold;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    #languageToggle:hover {
+      background-color: #ffd700;
+      color: #000;
     }
   </style>
 </head>
@@ -206,130 +228,258 @@
     Ari Einar
   </div>
   <nav>
-    <ul>
-      <li><a href="#home">Головна</a></li>
-      <li><a href="#about">Про мене</a></li>
-      <li><a href="#courses">Курси</a></li>
-      <li><a href="#reviews">Відгуки</a></li>
-      <li><a href="#contact">Контакти</a></li>
+    <ul id="navMenu">
+      <li><a href="#home" data-key="navHome">Головна</a></li>
+      <li><a href="#about" data-key="navAbout">Про мене</a></li>
+      <li><a href="#courses" data-key="navCourses">Курси</a></li>
+      <li><a href="#reviews" data-key="navReviews">Відгуки</a></li>
+      <li><a href="#contact" data-key="navContact">Контакти</a></li>
     </ul>
   </nav>
+  <button id="languageToggle" aria-label="Toggle language">EN</button>
 </header>
 
 <main>
   <section id="home">
-    <h1>Навички виживання, що рятують життя. Перевірено війною</h1>
-    <p style="text-align:center;">
+    <h1 data-key="homeTitle">Навички виживання, що рятують життя. Перевірено війною</h1>
+    <p style="text-align:center;" data-key="homeDesc">
       Ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року.  
       Навчаю цивільних та військових виживати, захищатись і діяти впевнено у складних ситуаціях.
     </p>
     <div style="text-align:center;">
-      <a href="#courses" class="cta-button" style="padding: 1rem 2rem; background:#ffd700; color:#000; font-weight:bold; text-transform:uppercase; border-radius:5px; text-decoration:none;">Дивитись курси</a>
+      <a href="#courses" class="cta-button" data-key="homeButton">Дивитись курси</a>
     </div>
   </section>
 
   <section id="about">
-    <h2>Про мене</h2>
-    <p>Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року. Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага), польова тактика, партизанські дії, базова домедична допомога.</p>
-    <p>Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю офіційні подяки від бойових бригад та командирів.</p>
-    <p>Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено, рішуче та без паніки — коли це справді потрібно.</p>
+    <h2 data-key="aboutTitle">Про мене</h2>
+    <p data-key="aboutP1">Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року. Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага), польова тактика, партизанські дії, базова домедична допомога.</p>
+    <p data-key="aboutP2">Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю офіційні подяки від бойових бригад та командирів.</p>
+    <p data-key="aboutP3">Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено, рішуче та без паніки — коли це справді потрібно.</p>
   </section>
 
   <section id="courses">
-    <h2>Курси та ціни</h2>
-    <p>Пропоную комплексні тренінги та авторські курси для різних рівнів підготовки. Кожен курс побудований на практиці та реальному досвіді.</p>
+    <h2 data-key="coursesTitle">Курси та ціни</h2>
+    <p data-key="coursesDesc">Пропоную комплексні тренінги та авторські курси для різних рівнів підготовки. Кожен курс побудований на практиці та реальному досвіді.</p>
     <table>
       <thead>
         <tr>
-          <th>Назва курсу</th>
-          <th>Опис</th>
-          <th>Ціна</th>
+          <th data-key="courseName">Назва курсу</th>
+          <th data-key="courseDesc">Опис</th>
+          <th data-key="coursePrice">Ціна</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Виживання в екстремальних умовах</td>
-          <td>Навички виживання в природі та в умовах бойових дій: орієнтування, побудова укриття, добування води і їжі, основи домедичної допомоги.</td>
-          <td>3500 грн</td>
+          <td data-key="course1Name">Виживання в екстремальних умовах</td>
+          <td data-key="course1Desc">Навички виживання в природі та в умовах бойових дій: орієнтування, побудова укриття, добування води і їжі, основи домедичної допомоги.</td>
+          <td data-key="course1Price">3500 грн</td>
         </tr>
         <tr>
-          <td>Самозахист і тактика Крав-мага</td>
-          <td>Практичний курс з прийомів самооборони, навички деескалації конфліктів, робота з холодною зброєю, ефективні удари, захист від нападів у різних ситуаціях.</td>
-          <td>4000 грн</td>
+          <td data-key="course2Name">Самозахист і тактика Крав-мага</td>
+          <td data-key="course2Desc">Практичний курс з прийомів самооборони, навички деескалації конфліктів, робота з холодною зброєю, ефективні удари, захист від нападів у різних ситуаціях.</td>
+          <td data-key="course2Price">4000 грн</td>
         </tr>
         <tr>
-          <td>Польова тактика та партизанські дії</td>
-          <td>Основи тактичного мислення, пересування та приховання, робота в команді, партизанські прийоми, приховане спостереження та маскування.</td>
-          <td>4500 грн</td>
+          <td data-key="course3Name">Польова тактика та партизанські дії</td>
+          <td data-key="course3Desc">Основи тактичного мислення, пересування та приховання, робота в команді, партизанські прийоми, приховане спостереження та маскування.</td>
+          <td data-key="course3Price">4500 грн</td>
         </tr>
         <tr>
-          <td>Базова домедична допомога</td>
-          <td>Надання першої допомоги у бойових умовах, зупинка кровотеч, накладання пов’язок, евакуація поранених, стабілізація стану до прибуття лікарів.</td>
-          <td>3000 грн</td>
+          <td data-key="course4Name">Базова домедична допомога</td>
+          <td data-key="course4Desc">Надання першої допомоги у бойових умовах, зупинка кровотеч, накладання пов’язок, евакуація поранених, стабілізація стану до прибуття лікарів.</td>
+          <td data-key="course4Price">3000 грн</td>
         </tr>
         <tr>
-          <td>Комплексний курс виживання</td>
-          <td>Об’єднує основи виживання, самозахисту та домедичної допомоги. Ідеально підходить для тих, хто хоче підготуватись комплексно.</td>
-          <td>10000 грн</td>
-        </tr>
-        <tr>
-          <td>Індивідуальне навчання</td>
-          <td>Особисті тренування з інструктором з урахуванням рівня підготовки, потреб і цілей клієнта.</td>
-          <td>від 5000 грн за сесію</td>
+          <td data-key="course5Name">Комплексний курс виживання</td>
+          <td data-key="course5Desc">Поєднання всіх навичок: виживання, самозахист, тактика, медицина. Для тих, хто хоче бути максимально готовим до будь-яких ситуацій.</td>
+          <td data-key="course5Price">10000 грн</td>
         </tr>
       </tbody>
     </table>
   </section>
 
   <section id="reviews">
-    <h2>Відгуки</h2>
-    <p>Щиро дякую всім, хто довірився моїм тренінгам. Ось що кажуть учасники:</p>
+    <h2 data-key="reviewsTitle">Відгуки</h2>
+    <p data-key="reviewsDesc">Реальні відгуки учнів та військових, які пройшли навчання у Ari Einar.</p>
     <div class="review-gallery">
-      <img src="review1.jpg" alt="Відгук 1" />
-      <img src="review2.jpg" alt="Відгук 2" />
-      <img src="review3.jpg" alt="Відгук 3" />
-      <img src="review4.jpg" alt="Відгук 4" />
+      <img src="review1.jpg" alt="Відгук 1" data-large="review1-large.jpg" />
+      <img src="review2.jpg" alt="Відгук 2" data-large="review2-large.jpg" />
+      <img src="review3.jpg" alt="Відгук 3" data-large="review3-large.jpg" />
+      <img src="review4.jpg" alt="Відгук 4" data-large="review4-large.jpg" />
+      <img src="review5.jpg" alt="Відгук 5" data-large="review5-large.jpg" />
     </div>
   </section>
 
   <section id="contact">
-    <h2>Зв'язок зі мною</h2>
-    <form id="contactForm" action="https://formspree.io/f/myform" method="POST">
-      <input type="text" name="name" placeholder="Ваше ім'я" required />
-      <input type="email" name="email" placeholder="Ваша електронна пошта" required />
-      <textarea name="message" rows="5" placeholder="Ваше повідомлення" required></textarea>
-      <button type="submit">Відправити</button>
+    <h2 data-key="contactTitle">Зворотній зв’язок</h2>
+    <form id="contactForm" action="https://formsubmit.co/your-email@example.com" method="POST">
+      <input type="text" name="name" placeholder="Ім'я" aria-label="Ім'я" required data-key-placeholder="contactName" />
+      <input type="email" name="email" placeholder="Email" aria-label="Email" required data-key-placeholder="contactEmail" />
+      <textarea name="message" rows="5" placeholder="Ваше повідомлення" aria-label="Ваше повідомлення" required data-key-placeholder="contactMessage"></textarea>
+      <button type="submit" data-key="contactButton">Відправити</button>
     </form>
   </section>
 </main>
 
-<footer>
-  <p>© 2025 Ari Einar — Всі права захищені</p>
-</footer>
-
-<!-- Скрипт для модального перегляду відгуків -->
-<div id="modal" onclick="closeModal()">
-  <img id="modalImg" src="" alt="Збільшене фото відгуку" />
+<div id="modal" aria-hidden="true">
+  <img src="" alt="Збільшене фото відгуку" />
 </div>
 
+<footer>
+  <p data-key="footerText">© 2024 Ari Einar. Всі права захищені.</p>
+</footer>
+
 <script>
-  const galleryImages = document.querySelectorAll('.review-gallery img');
+  // Локалізація текстів
+  const translations = {
+    en: {
+      navHome: "Home",
+      navAbout: "About Me",
+      navCourses: "Courses",
+      navReviews: "Reviews",
+      navContact: "Contact",
+      homeTitle: "Life-saving survival skills. Tested by war",
+      homeDesc: "Combat veteran, instructor with service experience in Israel and participation in Ukraine's defense since 2022. Teaching civilians and military to survive, defend themselves, and act confidently in difficult situations.",
+      homeButton: "View Courses",
+      aboutTitle: "About Me",
+      aboutP1: "I am a combat veteran, instructor with experience serving in Israel and participating in Ukraine’s defense since 2022. I specialize in preparing civilians and military for real threat conditions: survival, self-defense (Krav Maga), field tactics, guerrilla warfare, basic first aid.",
+      aboutP2: "I have trained hundreds of people, including defense forces units. For a long time, I have provided free training to military personnel, for which I have official acknowledgments from combat brigades and commanders.",
+      aboutP3: "I create author’s courses based on real combat and volunteer experience so that everyone can learn to act confidently, decisively, and without panic — when it really matters.",
+      coursesTitle: "Courses and Prices",
+      coursesDesc: "I offer comprehensive training and author courses for various skill levels. Each course is built on practice and real experience.",
+      courseName: "Course Name",
+      courseDesc: "Description",
+      coursePrice: "Price",
+      course1Name: "Survival in Extreme Conditions",
+      course1Desc: "Survival skills in nature and combat conditions: navigation, shelter building, water and food procurement, basics of first aid.",
+      course1Price: "3500 UAH",
+      course2Name: "Self-Defense and Krav Maga Tactics",
+      course2Desc: "Practical course in self-defense techniques, conflict de-escalation skills, work with cold weapons, effective strikes, defense against attacks in various situations.",
+      course2Price: "4000 UAH",
+      course3Name: "Field Tactics and Guerrilla Warfare",
+      course3Desc: "Basics of tactical thinking, movement and concealment, teamwork, guerrilla tactics, covert surveillance and camouflage.",
+      course3Price: "4500 UAH",
+      course4Name: "Basic First Aid",
+      course4Desc: "Providing first aid in combat conditions, stopping bleeding, applying bandages, evacuating wounded, stabilizing condition until doctors arrive.",
+      course4Price: "3000 UAH",
+      course5Name: "Comprehensive Survival Course",
+      course5Desc: "Combining all skills: survival, self-defense, tactics, medicine. For those who want to be fully prepared for any situation.",
+      course5Price: "10000 UAH",
+      reviewsTitle: "Reviews",
+      reviewsDesc: "Real feedback from students and military personnel who have trained with Ari Einar.",
+      contactTitle: "Feedback",
+      contactName: "Name",
+      contactEmail: "Email",
+      contactMessage: "Your message",
+      contactButton: "Send",
+      footerText: "© 2024 Ari Einar. All rights reserved."
+    },
+    uk: {
+      navHome: "Головна",
+      navAbout: "Про мене",
+      navCourses: "Курси",
+      navReviews: "Відгуки",
+      navContact: "Контакти",
+      homeTitle: "Навички виживання, що рятують життя. Перевірено війною",
+      homeDesc: "Ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року.  Навчаю цивільних та військових виживати, захищатись і діяти впевнено у складних ситуаціях.",
+      homeButton: "Дивитись курси",
+      aboutTitle: "Про мене",
+      aboutP1: "Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року. Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага), польова тактика, партизанські дії, базова домедична допомога.",
+      aboutP2: "Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю офіційні подяки від бойових бригад та командирів.",
+      aboutP3: "Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено, рішуче та без паніки — коли це справді потрібно.",
+      coursesTitle: "Курси та ціни",
+      coursesDesc: "Пропоную комплексні тренінги та авторські курси для різних рівнів підготовки. Кожен курс побудований на практиці та реальному досвіді.",
+      courseName: "Назва курсу",
+      courseDesc: "Опис",
+      coursePrice: "Ціна",
+      course1Name: "Виживання в екстремальних умовах",
+      course1Desc: "Навички виживання в природі та в умовах бойових дій: орієнтування, побудова укриття, добування води і їжі, основи домедичної допомоги.",
+      course1Price: "3500 грн",
+      course2Name: "Самозахист і тактика Крав-мага",
+      course2Desc: "Практичний курс з прийомів самооборони, навички деескалації конфліктів, робота з холодною зброєю, ефективні удари, захист від нападів у різних ситуаціях.",
+      course2Price: "4000 грн",
+      course3Name: "Польова тактика та партизанські дії",
+      course3Desc: "Основи тактичного мислення, пересування та приховання, робота в команді, партизанські прийоми, приховане спостереження та маскування.",
+      course3Price: "4500 грн",
+      course4Name: "Базова домедична допомога",
+      course4Desc: "Надання першої допомоги у бойових умовах, зупинка кровотеч, накладання пов’язок, евакуація поранених, стабілізація стану до прибуття лікарів.",
+      course4Price: "3000 грн",
+      course5Name: "Комплексний курс виживання",
+      course5Desc: "Поєднання всіх навичок: виживання, самозахист, тактика, медицина. Для тих, хто хоче бути максимально готовим до будь-яких ситуацій.",
+      course5Price: "10000 грн",
+      reviewsTitle: "Відгуки",
+      reviewsDesc: "Реальні відгуки учнів та військових, які пройшли навчання у Ari Einar.",
+      contactTitle: "Зворотній зв’язок",
+      contactName: "Ім'я",
+      contactEmail: "Email",
+      contactMessage: "Ваше повідомлення",
+      contactButton: "Відправити",
+      footerText: "© 2024 Ari Einar. Всі права захищені."
+    }
+  };
+
+  // Елементи, що змінюються
+  const elementsWithText = document.querySelectorAll('[data-key]');
+  const elementsWithPlaceholder = document.querySelectorAll('[data-key-placeholder]');
+  const languageToggle = document.getElementById('languageToggle');
+
+  // Початкова мова — українська
+  let currentLang = 'uk';
+
+  function updateTexts(lang) {
+    elementsWithText.forEach(el => {
+      const key = el.getAttribute('data-key');
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+    elementsWithPlaceholder.forEach(el => {
+      const key = el.getAttribute('data-key-placeholder');
+      if (translations[lang][key]) {
+        el.placeholder = translations[lang][key];
+      }
+    });
+    // Змінити атрибут lang у html
+    document.documentElement.lang = lang;
+    // Змінити текст на кнопці перемикання (показати іншу мову для вибору)
+    languageToggle.textContent = lang === 'uk' ? 'EN' : 'UA';
+  }
+
+  languageToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'uk' ? 'en' : 'uk';
+    updateTexts(currentLang);
+  });
+
+  // Початкове оновлення текстів
+  updateTexts(currentLang);
+
+  // Модальне окно для отзывов (увеличение фото)
   const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modalImg');
+  const modalImg = modal.querySelector('img');
+  const galleryImages = document.querySelectorAll('.review-gallery img');
 
   galleryImages.forEach(img => {
     img.addEventListener('click', () => {
       modal.style.display = 'flex';
-      modalImg.src = img.src;
-      modalImg.alt = img.alt;
+      modalImg.src = img.getAttribute('data-large');
+      modal.setAttribute('aria-hidden', 'false');
     });
   });
 
-  function closeModal() {
+  modal.addEventListener('click', () => {
     modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
     modalImg.src = '';
-    modalImg.alt = '';
-  }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.style.display === 'flex') {
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      modalImg.src = '';
+    }
+  });
 </script>
 
 </body>
