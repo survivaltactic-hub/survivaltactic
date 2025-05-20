@@ -1,494 +1,191 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ua">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ari Einar | Курси з виживання, самозахисту та тактики</title>
-  <meta name="description" content="Курси з виживання, самооборони, тактики. Авторські тренінги від Ari Einar — ветерана бойових дій." />
-  <meta name="keywords" content="виживання, самооборона, тактика, Крав-мага, бойовий досвід, курси, Ari Einar" />
-  <meta name="author" content="Ari Einar" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Ari Einar | Survival & Self-Defense Training" />
-  <meta property="og:description" content="Авторські курси з виживання, тактики та самозахисту від ветерана бойових дій." />
-  <meta property="og:image" content="preview.jpg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://arieinar.com" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <title>Ari Einar – Survival Instructor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">Про мене</a></li>
+        <li><a href="#courses">Курси</a></li>
+        <li><a href="#gallery">Галерея</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#reviews">Відгуки</a></li>
+        <li><a href="#schedule">Календар</a></li>
+        <li><a href="#contact">Контакти</a></li>
+        <li>
+          <select id="language-switcher">
+            <option value="ua" selected>UA</option>
+            <option value="en">EN</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h1>Ari Einar</h1>
+      <p>Інструктор з виживання, тактики та самозахисту.</p>
+    </section>
+
+    <section id="courses">
+      <h2>Курси</h2>
+      <p>Реальні навички виживання в умовах дикої природи та міста.</p>
+    </section>
+
+    <section id="gallery">
+      <h2>Фото та відео з занять</h2>
+      <div class="media-grid">
+        <img src="images/training1.jpg" alt="Тренування 1" />
+        <img src="images/training2.jpg" alt="Тренування 2" />
+        <video controls>
+          <source src="videos/training1.mp4" type="video/mp4" />
+          Ваш браузер не підтримує відео.
+        </video>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Часті запитання</h2>
+      <details>
+        <summary>Що взяти з собою на курс?</summary>
+        <p>Зручний одяг, вода, базове спорядження (якщо є).</p>
+      </details>
+      <details>
+        <summary>Чи є вікові обмеження?</summary>
+        <p>Учасники повинні бути старші 16 років.</p>
+      </details>
+    </section>
+
+    <section id="reviews">
+      <h2>Відгуки</h2>
+      <div id="review-list">
+        <div class="review">
+          <p>Неймовірний досвід! Дякую, Ari!</p>
+          <span>- Олена</span>
+        </div>
+        <div class="review">
+          <p>Дуже практично і цікаво. Рекомендую.</p>
+          <span>- Ігор</span>
+        </div>
+      </div>
+      <button id="add-review">Додати ще відгук</button>
+    </section>
+
+    <section id="schedule">
+      <h2>Найближчі курси</h2>
+      <ul>
+        <li><strong>25 травня:</strong> Основи виживання – Київ</li>
+        <li><strong>1 червня:</strong> Тактична медицина – Львів</li>
+        <li><strong>8 червня:</strong> Самозахист для жінок – Харків</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Контакти</h2>
+      <p>Зв'яжіться зі мною через месенджери:</p>
+      <div class="contact-buttons">
+        <a href="https://t.me/your_username" target="_blank"><img src="icons/telegram.svg" alt="Telegram" /></a>
+        <a href="viber://chat?number=%2B380XXXXXXXXX" target="_blank"><img src="icons/viber.svg" alt="Viber" /></a>
+        <a href="https://wa.me/380XXXXXXXXX" target="_blank"><img src="icons/whatsapp.svg" alt="WhatsApp" /></a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Локалізація (спрощено)
+    document.getElementById('language-switcher').addEventListener('change', function () {
+      const lang = this.value;
+      const currentUrl = window.location.href;
+      if (lang === 'en') {
+        window.location.href = currentUrl.replace('/ua', '/en');
+      } else {
+        window.location.href = currentUrl.replace('/en', '/ua');
+      }
+    });
+
+    // Додати відгук (демо)
+    document.getElementById('add-review').addEventListener('click', () => {
+      const review = document.createElement('div');
+      review.className = 'review';
+      review.innerHTML = `<p>Новий відгук (демо).</p><span>- Гість</span>`;
+      document.getElementById('review-list').appendChild(review);
+    });
+  </script>
+
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
     body {
-      background-color: #0e0e0e;
-      color: #f4f4f4;
-      font-family: 'Arial', sans-serif;
-      margin: 0; padding: 0;
-    }
-    a {
-      color: #ffd700;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    header {
-      background: #1a1a1a;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      border-bottom: 1px solid #333;
-    }
-    .logo {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #ffd700;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .logo img {
-      height: 40px;
-      width: auto;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #eee;
     }
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
-      padding-left: 0;
-      margin: 0;
+      gap: 1rem;
+      padding: 1rem;
+      background: #222;
       flex-wrap: wrap;
     }
-    nav li {
-      margin: 0;
-    }
-    nav a {
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #fff;
-    }
-    main {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+    nav ul li a, nav ul li select {
+      color: #eee;
+      text-decoration: none;
     }
     section {
-      margin-bottom: 4rem;
+      padding: 2rem;
     }
-    h1, h2, h3 {
-      color: #ffd700;
-      margin-bottom: 1rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      text-align: center;
-    }
-    h2 {
-      border-bottom: 2px solid #ffd700;
-      padding-bottom: 0.5rem;
-    }
-    p {
-      line-height: 1.6;
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-      color: #f4f4f4;
-    }
-    th, td {
-      border: 1px solid #444;
-      padding: 0.75rem 1rem;
-      text-align: left;
-      vertical-align: top;
-    }
-    th {
-      background-color: #222;
-    }
-    /* Галерея отзывов */
-    .review-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1rem;
     }
-    .review-gallery img {
-      width: 200px;
-      height: auto;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .review-gallery img:hover {
-      transform: scale(1.1);
-      z-index: 10;
-    }
-    /* Модальное окно для увеличенного фото */
-    #modal {
-      display: none;
-      position: fixed;
-      top:0; left:0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    #modal img {
-      max-width: 90vw;
-      max-height: 90vh;
+    .media-grid img, .media-grid video {
+      width: 100%;
       border-radius: 10px;
-      box-shadow: 0 0 10px #ffd700;
     }
-    #modal.close {
-      cursor: pointer;
+    details {
+      margin-bottom: 1rem;
+      background: #222;
+      padding: 1rem;
+      border-radius: 8px;
     }
-    form {
+    .contact-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .contact-buttons img {
+      width: 40px;
+      height: 40px;
+    }
+    #review-list {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      max-width: 400px;
-      margin: 0 auto;
     }
-    input, textarea {
-      padding: 0.75rem;
-      border-radius: 5px;
-      border: none;
-      font-size: 1rem;
-      resize: vertical;
+    .review {
+      background: #222;
+      padding: 1rem;
+      border-radius: 8px;
     }
     button {
-      background-color: #ffd700;
+      background: #444;
+      color: #fff;
+      padding: 0.5rem 1rem;
       border: none;
-      padding: 0.75rem;
-      font-weight: bold;
+      border-radius: 6px;
       cursor: pointer;
-      color: #000;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
     }
     button:hover {
-      background-color: #e6c200;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background-color: #111;
-      font-size: 0.9rem;
-      color: #888;
-    }
-    /* Адаптивность */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-      nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .review-gallery img {
-        width: 45vw;
-      }
-      form {
-        max-width: 100%;
-      }
-      #languageToggle {
-        margin-top: 0.5rem;
-      }
-    }
-    /* Кнопка переключения языка */
-    #languageToggle {
-      background: none;
-      border: 1px solid #ffd700;
-      color: #ffd700;
-      font-weight: bold;
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    #languageToggle:hover {
-      background-color: #ffd700;
-      color: #000;
+      background: #666;
     }
   </style>
-</head>
-<body>
-
-<header>
-  <div class="logo">
-    <img src="logo.png" alt="Ari Einar Logo" />
-    Ari Einar
-  </div>
-  <nav>
-    <ul id="navMenu">
-      <li><a href="#home" data-key="navHome">Головна</a></li>
-      <li><a href="#about" data-key="navAbout">Про мене</a></li>
-      <li><a href="#courses" data-key="navCourses">Курси</a></li>
-      <li><a href="#reviews" data-key="navReviews">Відгуки</a></li>
-      <li><a href="#contact" data-key="navContact">Контакти</a></li>
-    </ul>
-  </nav>
-  <button id="languageToggle" aria-label="Toggle language">EN</button>
-</header>
-
-<main>
-  <section id="home">
-    <h1 data-key="homeTitle">Навички виживання, що рятують життя. Перевірено війною</h1>
-    <p style="text-align:center;" data-key="homeDesc">
-      Ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року.  
-      Навчаю цивільних та військових виживати, захищатись і діяти впевнено у складних ситуаціях.
-    </p>
-    <div style="text-align:center;">
-      <a href="#courses" class="cta-button" data-key="homeButton">Дивитись курси</a>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2 data-key="aboutTitle">Про мене</h2>
-    <p data-key="aboutP1">Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року. Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага), польова тактика, партизанські дії, базова домедична допомога.</p>
-    <p data-key="aboutP2">Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю офіційні подяки від бойових бригад та командирів.</p>
-    <p data-key="aboutP3">Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено, рішуче та без паніки — коли це справді потрібно.</p>
-  </section>
-
-  <section id="courses">
-    <h2 data-key="coursesTitle">Курси та ціни</h2>
-    <p data-key="coursesDesc">Пропоную комплексні тренінги та авторські курси для різних рівнів підготовки. Кожен курс побудований на практиці та реальному досвіді.</p>
-    <table>
-      <thead>
-        <tr>
-          <th data-key="courseName">Назва курсу</th>
-          <th data-key="courseDesc">Опис</th>
-          <th data-key="coursePrice">Ціна</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-key="course1Name">Виживання в екстремальних умовах</td>
-          <td data-key="course1Desc">Навички виживання в природі та в умовах бойових дій: орієнтування, побудова укриття, добування води і їжі, основи домедичної допомоги.</td>
-          <td data-key="course1Price">3500 грн</td>
-        </tr>
-        <tr>
-          <td data-key="course2Name">Самозахист і тактика Крав-мага</td>
-          <td data-key="course2Desc">Практичний курс з прийомів самооборони, навички деескалації конфліктів, робота з холодною зброєю, ефективні удари, захист від нападів у різних ситуаціях.</td>
-          <td data-key="course2Price">4000 грн</td>
-        </tr>
-        <tr>
-          <td data-key="course3Name">Польова тактика та партизанські дії</td>
-          <td data-key="course3Desc">Основи тактичного мислення, пересування та приховання, робота в команді, партизанські прийоми, приховане спостереження та маскування.</td>
-          <td data-key="course3Price">4500 грн</td>
-        </tr>
-        <tr>
-          <td data-key="course4Name">Базова домедична допомога</td>
-          <td data-key="course4Desc">Надання першої допомоги у бойових умовах, зупинка кровотеч, накладання пов’язок, евакуація поранених, стабілізація стану до прибуття лікарів.</td>
-          <td data-key="course4Price">3000 грн</td>
-        </tr>
-        <tr>
-          <td data-key="course5Name">Комплексний курс виживання</td>
-          <td data-key="course5Desc">Поєднання всіх навичок: виживання, самозахист, тактика, медицина. Для тих, хто хоче бути максимально готовим до будь-яких ситуацій.</td>
-          <td data-key="course5Price">10000 грн</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="reviews">
-    <h2 data-key="reviewsTitle">Відгуки</h2>
-    <p data-key="reviewsDesc">Реальні відгуки учнів та військових, які пройшли навчання у Ari Einar.</p>
-    <div class="review-gallery">
-      <img src="review1.jpg" alt="Відгук 1" data-large="review1.jpg" />
-      <img src="review2.jpg" alt="Відгук 2" data-large="review2-large.jpg" />
-      <img src="review3.jpg" alt="Відгук 3" data-large="review3-large.jpg" />
-      <img src="review4.jpg" alt="Відгук 4" data-large="review4-large.jpg" />
-      <img src="review5.jpg" alt="Відгук 5" data-large="review5-large.jpg" />
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2 data-key="contactTitle">Зворотній зв’язок</h2>
-    <form id="contactForm" action="https://formsubmit.co/your-email@example.com" method="POST">
-      <input type="text" name="name" placeholder="Ім'я" aria-label="Ім'я" required data-key-placeholder="contactName" />
-      <input type="email" name="email" placeholder="Email" aria-label="Email" required data-key-placeholder="contactEmail" />
-      <textarea name="message" rows="5" placeholder="Ваше повідомлення" aria-label="Ваше повідомлення" required data-key-placeholder="contactMessage"></textarea>
-      <button type="submit" data-key="contactButton">Відправити</button>
-    </form>
-  </section>
-</main>
-  
-<div class="telegram-button-wrapper">
-  <a href="https://t.me/your_username" target="_blank" class="telegram-button">
-    <img src="telegram-icon.svg" alt="Telegram" />
-    Написати в Telegram
-  </a>
-</div>
-
-
-<div id="modal" aria-hidden="true">
-  <img src="" alt="Збільшене фото відгуку" />
-</div>
-
-<footer>
-  <p data-key="footerText">© 2024 Ari Einar. Всі права захищені.</p>
-</footer>
-
-<script>
-  // Локалізація текстів
-  const translations = {
-    en: {
-      navHome: "Home",
-      navAbout: "About Me",
-      navCourses: "Courses",
-      navReviews: "Reviews",
-      navContact: "Contact",
-      homeTitle: "Life-saving survival skills. Tested by war",
-      homeDesc: "Combat veteran, instructor with service experience in Israel and participation in Ukraine's defense since 2022. Teaching civilians and military to survive, defend themselves, and act confidently in difficult situations.",
-      homeButton: "View Courses",
-      aboutTitle: "About Me",
-      aboutP1: "I am a combat veteran, instructor with experience serving in Israel and participating in Ukraine’s defense since 2022. I specialize in preparing civilians and military for real threat conditions: survival, self-defense (Krav Maga), field tactics, guerrilla warfare, basic first aid.",
-      aboutP2: "I have trained hundreds of people, including defense forces units. For a long time, I have provided free training to military personnel, for which I have official acknowledgments from combat brigades and commanders.",
-      aboutP3: "I create author’s courses based on real combat and volunteer experience so that everyone can learn to act confidently, decisively, and without panic — when it really matters.",
-      coursesTitle: "Courses and Prices",
-      coursesDesc: "I offer comprehensive training and author courses for various skill levels. Each course is built on practice and real experience.",
-      courseName: "Course Name",
-      courseDesc: "Description",
-      coursePrice: "Price",
-      course1Name: "Survival in Extreme Conditions",
-      course1Desc: "Survival skills in nature and combat conditions: navigation, shelter building, water and food procurement, basics of first aid.",
-      course1Price: "3500 UAH",
-      course2Name: "Self-Defense and Krav Maga Tactics",
-      course2Desc: "Practical course in self-defense techniques, conflict de-escalation skills, work with cold weapons, effective strikes, defense against attacks in various situations.",
-      course2Price: "4000 UAH",
-      course3Name: "Field Tactics and Guerrilla Warfare",
-      course3Desc: "Basics of tactical thinking, movement and concealment, teamwork, guerrilla tactics, covert surveillance and camouflage.",
-      course3Price: "4500 UAH",
-      course4Name: "Basic First Aid",
-      course4Desc: "Providing first aid in combat conditions, stopping bleeding, applying bandages, evacuating wounded, stabilizing condition until doctors arrive.",
-      course4Price: "3000 UAH",
-      course5Name: "Comprehensive Survival Course",
-      course5Desc: "Combining all skills: survival, self-defense, tactics, medicine. For those who want to be fully prepared for any situation.",
-      course5Price: "10000 UAH",
-      reviewsTitle: "Reviews",
-      reviewsDesc: "Real feedback from students and military personnel who have trained with Ari Einar.",
-      contactTitle: "Feedback",
-      contactName: "Name",
-      contactEmail: "Email",
-      contactMessage: "Your message",
-      contactButton: "Send",
-      footerText: "© 2024 Ari Einar. All rights reserved."
-    },
-    uk: {
-      navHome: "Головна",
-      navAbout: "Про мене",
-      navCourses: "Курси",
-      navReviews: "Відгуки",
-      navContact: "Контакти",
-      homeTitle: "Навички виживання, що рятують життя. Перевірено війною",
-      homeDesc: "Ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року.  Навчаю цивільних та військових виживати, захищатись і діяти впевнено у складних ситуаціях.",
-      homeButton: "Дивитись курси",
-      aboutTitle: "Про мене",
-      aboutP1: "Я — ветеран бойових дій, інструктор із досвідом служби в Ізраїлі та участі в обороні України з 2022 року. Спеціалізуюся на підготовці цивільних і військових до дій в умовах реальної загрози: виживання, самооборона (Крав-мага), польова тактика, партизанські дії, базова домедична допомога.",
-      aboutP2: "Навчив сотні людей, зокрема у підрозділах сил оборони. Протягом тривалого часу безкоштовно навчав військових, за що маю офіційні подяки від бойових бригад та командирів.",
-      aboutP3: "Створюю авторські курси на основі реального бойового та волонтерського досвіду, щоб кожен міг навчитись діяти впевнено, рішуче та без паніки — коли це справді потрібно.",
-      coursesTitle: "Курси та ціни",
-      coursesDesc: "Пропоную комплексні тренінги та авторські курси для різних рівнів підготовки. Кожен курс побудований на практиці та реальному досвіді.",
-      courseName: "Назва курсу",
-      courseDesc: "Опис",
-      coursePrice: "Ціна",
-      course1Name: "Виживання в екстремальних умовах",
-      course1Desc: "Навички виживання в природі та в умовах бойових дій: орієнтування, побудова укриття, добування води і їжі, основи домедичної допомоги.",
-      course1Price: "3500 грн",
-      course2Name: "Самозахист і тактика Крав-мага",
-      course2Desc: "Практичний курс з прийомів самооборони, навички деескалації конфліктів, робота з холодною зброєю, ефективні удари, захист від нападів у різних ситуаціях.",
-      course2Price: "4000 грн",
-      course3Name: "Польова тактика та партизанські дії",
-      course3Desc: "Основи тактичного мислення, пересування та приховання, робота в команді, партизанські прийоми, приховане спостереження та маскування.",
-      course3Price: "4500 грн",
-      course4Name: "Базова домедична допомога",
-      course4Desc: "Надання першої допомоги у бойових умовах, зупинка кровотеч, накладання пов’язок, евакуація поранених, стабілізація стану до прибуття лікарів.",
-      course4Price: "3000 грн",
-      course5Name: "Комплексний курс виживання",
-      course5Desc: "Поєднання всіх навичок: виживання, самозахист, тактика, медицина. Для тих, хто хоче бути максимально готовим до будь-яких ситуацій.",
-      course5Price: "10000 грн",
-      reviewsTitle: "Відгуки",
-      reviewsDesc: "Реальні відгуки учнів та військових, які пройшли навчання у Ari Einar.",
-      contactTitle: "Зворотній зв’язок",
-      contactName: "Ім'я",
-      contactEmail: "Email",
-      contactMessage: "Ваше повідомлення",
-      contactButton: "Відправити",
-      footerText: "© 2024 Ari Einar. Всі права захищені."
-    }
-  };
-
-  // Елементи, що змінюються
-  const elementsWithText = document.querySelectorAll('[data-key]');
-  const elementsWithPlaceholder = document.querySelectorAll('[data-key-placeholder]');
-  const languageToggle = document.getElementById('languageToggle');
-
-  // Початкова мова — українська
-  let currentLang = 'uk';
-
-  function updateTexts(lang) {
-    elementsWithText.forEach(el => {
-      const key = el.getAttribute('data-key');
-      if (translations[lang][key]) {
-        el.textContent = translations[lang][key];
-      }
-    });
-    elementsWithPlaceholder.forEach(el => {
-      const key = el.getAttribute('data-key-placeholder');
-      if (translations[lang][key]) {
-        el.placeholder = translations[lang][key];
-      }
-    });
-    // Змінити атрибут lang у html
-    document.documentElement.lang = lang;
-    // Змінити текст на кнопці перемикання (показати іншу мову для вибору)
-    languageToggle.textContent = lang === 'uk' ? 'EN' : 'UA';
-  }
-
-  languageToggle.addEventListener('click', () => {
-    currentLang = currentLang === 'uk' ? 'en' : 'uk';
-    updateTexts(currentLang);
-  });
-
-  // Початкове оновлення текстів
-  updateTexts(currentLang);
-
-  // Модальне окно для отзывов (увеличение фото)
-  const modal = document.getElementById('modal');
-  const modalImg = modal.querySelector('img');
-  const galleryImages = document.querySelectorAll('.review-gallery img');
-
-  galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-      modal.style.display = 'flex';
-      modalImg.src = img.getAttribute('data-large');
-      modal.setAttribute('aria-hidden', 'false');
-    });
-  });
-
-  modal.addEventListener('click', () => {
-    modal.style.display = 'none';
-    modal.setAttribute('aria-hidden', 'true');
-    modalImg.src = '';
-  });
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && modal.style.display === 'flex') {
-      modal.style.display = 'none';
-      modal.setAttribute('aria-hidden', 'true');
-      modalImg.src = '';
-    }
-  });
-</script>
-
 </body>
 </html>
