@@ -300,3 +300,23 @@ footer {
   transform: scale(1.05);
   cursor: pointer;
 }
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gallery-container a img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+
+.gallery-container a img:hover {
+  transform: scale(1.05);
+}
