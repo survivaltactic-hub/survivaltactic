@@ -571,6 +571,23 @@ function closeModal() {
   document.getElementById("imageModal").style.display = "none";
 }
 </script>
+<script>
+  function openModal(src, alt) {
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    modal.style.display = 'flex';
+    modalImg.src = src;
+    modalImg.alt = alt;
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+  }
+</script>
+<div id="modal" onclick="closeModal()">
+  <img id="modalImg" src="" alt="" />
+</div>
 
 </body>
 </html>
