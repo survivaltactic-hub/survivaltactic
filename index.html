@@ -316,13 +316,12 @@
 <section id="gallery">
   <h2>Галерея тренувань / Training Gallery</h2>
   <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <img src="images/g1.JPG" alt="Крав-мага" style="width: 150px; height: auto;" />
-    <img src="images/g2.JPG" alt="Тактика" style="width: 150px; height: auto;" />
-    <img src="images/g3.JPG" alt="Медицина" style="width: 150px; height: auto;" />
-    <img src="images/g4.jpg" alt="Медицина" style="width: 150px; height: auto;" />
-    <img src="images/g5.jpg" alt="Медицина" style="width: 150px; height: auto;" />
+    <img src="images/photo1.jpg" alt="Крав-мага" style="width: 150px; cursor: pointer;" onclick="openModal(this.src, this.alt)" />
+    <img src="images/photo2.jpg" alt="Тактика" style="width: 150px; cursor: pointer;" onclick="openModal(this.src, this.alt)" />
+    <img src="images/photo3.jpg" alt="Медицина" style="width: 150px; cursor: pointer;" onclick="openModal(this.src, this.alt)" />
   </div>
 </section>
+
 
 <section id="pricing" style="font-family: system-ui, sans-serif; font-size: 18px; line-height: 1.6; margin-top: 40px;">
   <h2 style="font-size: 28px; margin-bottom: 20px;">Вартість</h2>
@@ -549,6 +548,26 @@
       modalImg.src = '';
     }
   });
+</script>
+<div id="imageModal" class="modal" onclick="closeModal()">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+  <div id="caption"></div>
+</div>
+<script>
+function openModal(src, alt) {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const caption = document.getElementById("caption");
+
+  modal.style.display = "block";
+  modalImg.src = src;
+  caption.innerHTML = alt;
+}
+
+function closeModal() {
+  document.getElementById("imageModal").style.display = "none";
+}
 </script>
 
 </body>
